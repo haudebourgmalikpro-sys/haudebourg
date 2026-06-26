@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="ext-resource-dependency" content="assets/hero-burgundy.jpg" data-resource-id="heroBurgundy" />
+<meta name="ext-resource-dependency" content="assets/hero-pour.jpg" data-resource-id="heroPour" />
+<meta name="ext-resource-dependency" content="assets/drink-dark.jpg" data-resource-id="drinkDark" />
+<meta name="ext-resource-dependency" content="assets/product-bordeaux.jpg" data-resource-id="productBordeaux" />
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script defer data-domain="haudebourg" src="https://plausible.io/js/pa-CB7z1PMXpVKM_Nvvg6uDQ.js"></script>
+<script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+<title>Haudebourg — L’art du café, torréfié en France</title>
+<meta name="description" content="Café de spécialité Haudebourg Original, 100 % Arabica de Colombie, grains entiers torréfiés en France. Livraison offerte dès 40 €.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{scrollbar-color:#54192A #EAE2D4;scrollbar-width:thin;}
+  ::-webkit-scrollbar{width:13px;height:13px;}
+  ::-webkit-scrollbar-track{background:#EAE2D4;}
+  ::-webkit-scrollbar-thumb{background:#54192A;border-radius:10px;border:3px solid #EAE2D4;}
+  ::-webkit-scrollbar-thumb:hover{background:#6B2233;}
+  ::-webkit-scrollbar-corner{background:#EAE2D4;}
+  body::after{content:"";position:fixed;inset:0;z-index:2147483000;pointer-events:none;opacity:.11;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='200'%20height='200'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.85'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px 180px;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:#F4EEE4;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  img{display:block;}
+  ::selection{background:#C6A35C;color:#2A1116;}
+  @keyframes hdMarquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  @keyframes hdReveal{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+  @media (max-width:900px){
+    .hd-hero-grid{grid-template-columns:1fr !important;}
+    .hd-hero-img{min-height:52vh !important;}
+    .hd-2col{grid-template-columns:1fr !important;}
+    .hd-3col{grid-template-columns:1fr 1fr !important;}
+    .hd-hide-sm{display:none !important;}
+    .hd-show-sm{display:inline-flex !important;}
+    .hd-pad{padding-left:7vw !important;padding-right:7vw !important;}
+    nav{padding:14px 6vw !important;}
+  }
+  @media (max-width:640px){
+    .hd-3col{grid-template-columns:1fr !important;}
+    section[data-screen-label]{padding-top:72px !important;padding-bottom:72px !important;}
+    .hd-flush{padding-top:0 !important;padding-bottom:0 !important;}
+    .hd-pad{padding-top:76px !important;padding-bottom:64px !important;}
+    .hd-reassure > div{border-right:none !important;border-bottom:1px solid rgba(42,26,28,.12);padding:16px 4px !important;}
+    .hd-reassure > div:last-child{border-bottom:none;}
+    .hd-cta-row > a{width:100% !important;justify-content:center !important;}
+  }
+  .hd-show-sm{display:none;}
+  .hd-drawer{position:fixed;inset:0;z-index:200;display:flex;justify-content:flex-end;}
+  .hd-drawer:not(.open){pointer-events:none;}
+  .hd-drawer-panel{transform:translateX(100%);transition:transform .42s cubic-bezier(.4,0,.2,1);}
+  .hd-drawer.open .hd-drawer-panel{transform:translateX(0);}
+  .hd-drawer-scrim{position:absolute;inset:0;background:rgba(28,9,14,.5);opacity:0;transition:opacity .42s ease;}
+  .hd-drawer.open .hd-drawer-scrim{opacity:1;}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="background:#F4EEE4;color:#221A1C;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;overflow-x:hidden;">
+
+  <nav ref="{{ navRef }}" style="position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:19px 44px;border-bottom:1px solid transparent;transition:background .55s ease,border-color .55s ease,padding .4s ease;">
+    <a href="#top" data-navlogo style="font:500 27px/1 'Cormorant Garamond',serif;letter-spacing:.005em;color:#F4EEE4;text-decoration:none;transition:color .55s ease;">haudebourg</a>
+    <div class="hd-hide-sm" style="display:flex;align-items:center;gap:36px;">
+      <a href="#cafe" data-navlink style="font:500 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#F4EEE4;text-decoration:none;opacity:.86;transition:color .55s ease,opacity .3s ease;">Le Café</a>
+      <a href="#editions" data-navlink style="font:500 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#F4EEE4;text-decoration:none;opacity:.86;transition:color .55s ease,opacity .3s ease;">L’Original</a>
+      <a href="#rituel" data-navlink style="font:500 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#F4EEE4;text-decoration:none;opacity:.86;transition:color .55s ease,opacity .3s ease;">Le Rituel</a>
+      <a href="#abonnement" data-navlink style="font:500 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#F4EEE4;text-decoration:none;opacity:.86;transition:color .55s ease,opacity .3s ease;">L’Abonnement</a>
+      <a href="#offrir" data-navlink style="font:500 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#F4EEE4;text-decoration:none;opacity:.86;transition:color .55s ease,opacity .3s ease;">Offrir</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div class="hd-hide-sm" style="position:relative;">
+        <button onClick="{{ toggleLang }}" data-navlang aria-label="Choisir la langue" aria-expanded="{{ langOpen }}" style="display:inline-flex;align-items:center;gap:7px;height:40px;padding:0 13px;border:1px solid rgba(244,238,228,.5);border-radius:100px;background:transparent;color:#F4EEE4;font:600 11.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.1em;cursor:pointer;transition:color .55s ease,border-color .55s ease,background .3s ease;" style-hover="background:rgba(244,238,228,.1);">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.55"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"></path></svg>
+          <span>{{ langCode }}</span>
+          <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" style="opacity:.7;transform:translateY(1px);"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <sc-if value="{{ langOpen }}" hint-placeholder-val="{{ false }}">
+          <div onClick="{{ closeLang }}" style="position:fixed;inset:0;z-index:94;"></div>
+          <div style="position:absolute;top:calc(100% + 12px);right:0;width:218px;background:#fff;border:1px solid rgba(42,26,28,.1);border-radius:6px;box-shadow:0 30px 70px -30px rgba(60,19,29,.5);padding:7px;z-index:95;">
+            <p style="margin:5px 11px 8px;font:600 9.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:rgba(42,26,28,.4);">Langue / Language</p>
+            <button onClick="{{ chooseFr }}" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:11px 12px;border:none;background:{{ frBg }};border-radius:4px;cursor:pointer;text-align:left;transition:background .25s ease;" style-hover="background:rgba(42,26,28,.05);">
+              <span style="display:flex;align-items:center;gap:12px;">
+                <span style="display:flex;width:26px;height:18px;border-radius:2px;overflow:hidden;flex:none;box-shadow:0 0 0 1px rgba(0,0,0,.08);"><span style="flex:1;background:#0055A4;"></span><span style="flex:1;background:#fff;"></span><span style="flex:1;background:#EF4135;"></span></span>
+                <span style="font:500 14px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#2A1A1C;">Français</span>
+              </span>
+              <span style="font-size:13px;color:#9A5B43;width:14px;text-align:center;">{{ frCheck }}</span>
+            </button>
+            <button onClick="{{ chooseEn }}" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:11px 12px;border:none;background:{{ enBg }};border-radius:4px;cursor:pointer;text-align:left;transition:background .25s ease;" style-hover="background:rgba(42,26,28,.05);">
+              <span style="display:flex;align-items:center;gap:12px;">
+                <span style="position:relative;display:block;width:26px;height:18px;border-radius:2px;overflow:hidden;flex:none;box-shadow:0 0 0 1px rgba(0,0,0,.08);background:repeating-linear-gradient(#B22234 0 2.57px,#fff 2.57px 5.14px);"><span style="position:absolute;left:0;top:0;width:11px;height:9.7px;background:#3C3B6E;"></span></span>
+                <span style="font:500 14px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#2A1A1C;">English (USA)</span>
+              </span>
+              <span style="font-size:13px;color:#9A5B43;width:14px;text-align:center;">{{ enCheck }}</span>
+            </button>
+          </div>
+        </sc-if>
+      </div>
+      <a href="Compte.dc.html" data-navacct class="hd-hide-sm" aria-label="Mon compte" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid rgba(244,238,228,.5);border-radius:100px;color:#F4EEE4;text-decoration:none;transition:color .55s ease,border-color .55s ease;"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.4"></circle><path d="M5.5 19.5a6.5 6.5 0 0 1 13 0"></path></svg></a>
+      <div onMouseEnter="{{ openMini }}" onMouseLeave="{{ closeMini }}" style="position:relative;">
+      <a href="Panier.dc.html" data-navcta aria-label="Voir le panier" style="display:inline-flex;align-items:center;gap:9px;padding:10px 19px;border:1px solid rgba(244,238,228,.5);border-radius:2px;font:600 11.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#F4EEE4;text-decoration:none;transition:color .55s ease,border-color .55s ease,background .3s ease;">Panier · {{ cartCount }}</a>
+      <sc-if value="{{ miniOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;top:calc(100% + 14px);right:0;width:344px;background:#fff;border:1px solid rgba(42,26,28,.12);border-radius:5px;box-shadow:0 34px 80px -34px rgba(60,19,29,.5);padding:18px;z-index:90;">
+          <sc-if value="{{ miniEmpty }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:6px 4px 10px;font:400 14px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.6);text-align:center;">Votre panier est vide.</p>
+            <a href="#editions" style="display:block;text-align:center;padding:13px;background:#54192A;color:#F4EEE4;font:600 11.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;">Découvrir l’Original</a>
+          </sc-if>
+          <sc-if value="{{ miniHas }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column;gap:13px;max-height:280px;overflow:auto;">
+              <sc-for list="{{ miniItems }}" as="m" hint-placeholder-count="0">
+                <div style="display:grid;grid-template-columns:48px 1fr auto;gap:12px;align-items:center;">
+                  <div style="width:48px;height:48px;border-radius:3px;background:#ece2d2 {{ m.bg }};background-size:cover;background-position:center;"></div>
+                  <div style="min-width:0;">
+                    <p style="margin:0;font:400 16px/1.1 'Cormorant Garamond',serif;color:#2A1A1C;">{{ m.name }}</p>
+                    <p style="margin:3px 0 0;font:400 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.55);">{{ m.qtyPrice }}</p>
+                  </div>
+                  <button onClick="{{ m.remove }}" aria-label="Retirer {{ m.name }}" style="background:none;border:none;cursor:pointer;font-size:15px;color:rgba(42,26,28,.4);padding:4px;transition:color .3s ease;" style-hover="color:#7A2433;">×</button>
+                </div>
+              </sc-for>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin:16px 0 14px;padding-top:14px;border-top:1px solid rgba(42,26,28,.1);font:500 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#2A1A1C;"><span>Sous-total</span><span>{{ miniSubtotal }}</span></div>
+            <div style="display:flex;gap:8px;">
+              <a href="Panier.dc.html" style="flex:1;text-align:center;padding:13px;border:1px solid #54192A;color:#54192A;font:600 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:2px;">Le panier</a>
+              <a href="Checkout.dc.html" style="flex:1;text-align:center;padding:13px;background:#54192A;color:#F4EEE4;font:600 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:2px;">Commander</a>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+      </div>
+      <button onClick="{{ toggleMenu }}" data-navburger class="hd-show-sm" aria-label="Ouvrir le menu" style="display:none;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid rgba(244,238,228,.5);border-radius:2px;background:transparent;color:#F4EEE4;cursor:pointer;transition:color .55s ease,border-color .55s ease;">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="hd-drawer {{ menuOpenClass }}" aria-hidden="{{ menuHidden }}">
+    <div class="hd-drawer-scrim" onClick="{{ closeMenu }}"></div>
+    <div class="hd-drawer-panel" style="position:relative;width:min(86vw,366px);height:100%;background:#54192A;box-shadow:-30px 0 80px -30px rgba(0,0,0,.6);padding:26px 30px 38px;display:flex;flex-direction:column;overflow-y:auto;">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <span style="font:500 26px/1 'Cormorant Garamond',serif;color:#F4EEE4;">haudebourg</span>
+        <button onClick="{{ closeMenu }}" aria-label="Fermer le menu" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid rgba(244,238,228,.4);border-radius:50%;background:transparent;color:#F4EEE4;font-size:22px;line-height:1;cursor:pointer;">×</button>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:2px;margin-top:38px;">
+        <a href="#cafe" onClick="{{ closeMenu }}" style="padding:16px 0;border-bottom:1px solid rgba(244,238,228,.14);font:300 28px/1 'Cormorant Garamond',serif;color:#F6F0E6;text-decoration:none;">Le Café</a>
+        <a href="#editions" onClick="{{ closeMenu }}" style="padding:16px 0;border-bottom:1px solid rgba(244,238,228,.14);font:300 28px/1 'Cormorant Garamond',serif;color:#F6F0E6;text-decoration:none;">L’Original</a>
+        <a href="#rituel" onClick="{{ closeMenu }}" style="padding:16px 0;border-bottom:1px solid rgba(244,238,228,.14);font:300 28px/1 'Cormorant Garamond',serif;color:#F6F0E6;text-decoration:none;">Le Rituel</a>
+        <a href="#abonnement" onClick="{{ closeMenu }}" style="padding:16px 0;border-bottom:1px solid rgba(244,238,228,.14);font:300 28px/1 'Cormorant Garamond',serif;color:#F6F0E6;text-decoration:none;">L’Abonnement</a>
+        <a href="#offrir" onClick="{{ closeMenu }}" style="padding:16px 0;border-bottom:1px solid rgba(244,238,228,.14);font:300 28px/1 'Cormorant Garamond',serif;color:#F6F0E6;text-decoration:none;">Offrir</a>
+      </div>
+      <div style="display:flex;gap:9px;margin-top:32px;">
+        <button onClick="{{ chooseFr }}" style="flex:1;display:flex;align-items:center;justify-content:center;gap:9px;padding:13px;border:1px solid {{ frBorder }};border-radius:3px;background:{{ frBgDark }};color:#F6F0E6;font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.06em;cursor:pointer;">
+          <span style="display:flex;width:22px;height:15px;border-radius:2px;overflow:hidden;flex:none;"><span style="flex:1;background:#0055A4;"></span><span style="flex:1;background:#fff;"></span><span style="flex:1;background:#EF4135;"></span></span>FR
+        </button>
+        <button onClick="{{ chooseEn }}" style="flex:1;display:flex;align-items:center;justify-content:center;gap:9px;padding:13px;border:1px solid {{ enBorder }};border-radius:3px;background:{{ enBgDark }};color:#F6F0E6;font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.06em;cursor:pointer;">
+          <span style="position:relative;display:block;width:22px;height:15px;border-radius:2px;overflow:hidden;flex:none;background:repeating-linear-gradient(#B22234 0 2.14px,#fff 2.14px 4.28px);"><span style="position:absolute;left:0;top:0;width:9px;height:8px;background:#3C3B6E;"></span></span>EN
+        </button>
+      </div>
+      <a href="Compte.dc.html" style="display:flex;align-items:center;gap:11px;margin-top:14px;padding:14px 16px;border:1px solid rgba(244,238,228,.28);border-radius:3px;color:#F6F0E6;font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.4"></circle><path d="M5.5 19.5a6.5 6.5 0 0 1 13 0"></path></svg>Mon compte</a>
+      <a href="Panier.dc.html" style="display:flex;align-items:center;justify-content:center;gap:9px;margin-top:auto;padding:16px;background:#C6A35C;color:#2A1116;font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;">Voir le panier · {{ cartCount }}</a>
+    </div>
+  </div>
+
+  <header id="top" data-screen-label="Hero" data-navtheme="dark" style="position:relative;min-height:100vh;background:radial-gradient(125% 105% at 80% 16%,#71243525 0%,#54192A 0%,#54192A 44%,#3C131D 100%);overflow:hidden;">
+    <div class="hd-hero-grid" style="position:relative;display:grid;grid-template-columns:1.04fr 0.96fr;min-height:100vh;">
+      <div class="hd-pad" style="display:flex;flex-direction:column;justify-content:center;padding:128px 5.5vw 84px;">
+        <div data-hero-text style="max-width:600px;">
+          <span style="display:inline-block;font:600 11.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.32em;text-transform:uppercase;color:#D8BE86;">Café de spécialité — Édition Original</span>
+          <h1 style="margin:24px 0 0;font:300 clamp(46px,6.6vw,96px)/0.97 'Cormorant Garamond',serif;color:#F6F0E6;letter-spacing:-.012em;">L’art du café,<br><em style="font-style:italic;font-weight:400;color:#E8CB89;">torréfié en France.</em></h1>
+          <p style="margin:28px 0 0;max-width:430px;font:400 17px/1.7 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.74);">Des grains 100 % Arabica de Colombie, torréfiés en France et scellés à la main. Le café que l’on garde — et que l’on offre.</p>
+          <div style="display:flex;gap:13px;margin-top:40px;flex-wrap:wrap;" class="hd-cta-row">
+            <a href="#cafe" style="display:inline-flex;align-items:center;gap:10px;padding:17px 32px;background:#C6A35C;color:#2A1116;font:600 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:transform .55s cubic-bezier(.2,.6,.32,1),background .35s ease,box-shadow .55s ease;box-shadow:0 14px 38px -14px rgba(198,163,92,.7);" style-hover="transform:translateY(-3px);background:#d4b46c;box-shadow:0 20px 46px -14px rgba(198,163,92,.8);">Découvrir le café</a>
+            <a href="#abonnement" style="display:inline-flex;align-items:center;padding:17px 30px;border:1px solid rgba(244,238,228,.42);color:#F4EEE4;font:600 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background .4s ease,color .4s ease,border-color .4s ease;" style-hover="background:#F4EEE4;color:#54192A;border-color:#F4EEE4;">Composer mon abonnement</a>
+          </div>
+          <div style="display:flex;gap:22px;margin-top:38px;flex-wrap:wrap;">
+            <span style="font:500 12px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.04em;color:rgba(246,240,230,.62);">Torréfié en France</span>
+            <span style="color:rgba(246,240,230,.3);">·</span>
+            <span style="font:500 12px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.04em;color:rgba(246,240,230,.62);">Livraison offerte dès 40 €</span>
+            <span style="color:rgba(246,240,230,.3);">·</span>
+            <span style="font:500 12px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.04em;color:rgba(246,240,230,.62);">Sans engagement</span>
+          </div>
+        </div>
+      </div>
+      <div class="hd-hero-img" style="position:relative;overflow:hidden;">
+        <img ref="{{ heroImgRef }}" data-scrub="0.16" src="assets/hero-burgundy.jpg" alt="Tube Haudebourg Original" decoding="async" fetchpriority="high" style="position:absolute;inset:-8% 0;width:100%;height:116%;object-fit:cover;object-position:50% 42%;"/>
+        <div style="position:absolute;left:0;top:0;bottom:0;width:60%;background:linear-gradient(90deg,#54192A 0%,rgba(84,25,42,.92) 14%,rgba(84,25,42,.62) 34%,rgba(84,25,42,.28) 60%,rgba(84,25,42,0) 100%);"></div>
+        <div style="position:absolute;left:0;right:0;bottom:0;height:30%;background:linear-gradient(0deg,#3C131D 0%,rgba(60,19,29,0) 100%);"></div>
+      </div>
+    </div>
+  </header>
+
+  <sc-if value="{{ showBar }}" hint-placeholder-val="{{ true }}">
+    <div style="background:#3C131D;overflow:hidden;border-top:1px solid rgba(198,163,92,.22);border-bottom:1px solid rgba(198,163,92,.22);">
+      <div style="display:flex;width:max-content;animation:hdMarquee 38s linear infinite;">
+        <div style="display:flex;align-items:center;gap:54px;padding:14px 0;padding-right:54px;font:600 11.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D8BE86;white-space:nowrap;">
+          <span>Livraison offerte dès 40 €</span><span style="color:rgba(216,190,134,.4);">✦</span><span>Torréfié en France</span><span style="color:rgba(216,190,134,.4);">✦</span><span>Coffret cadeau sur demande</span><span style="color:rgba(216,190,134,.4);">✦</span><span>Sans engagement</span><span style="color:rgba(216,190,134,.4);">✦</span><span>Livraison offerte dès 40 €</span><span style="color:rgba(216,190,134,.4);">✦</span><span>Torréfié en France</span><span style="color:rgba(216,190,134,.4);">✦</span><span>Coffret cadeau sur demande</span><span style="color:rgba(216,190,134,.4);">✦</span><span>Sans engagement</span><span style="color:rgba(216,190,134,.4);">✦</span><span>Livraison offerte dès 40 €</span><span style="color:rgba(216,190,134,.4);">✦</span><span>Torréfié en France</span><span style="color:rgba(216,190,134,.4);">✦</span><span>Coffret cadeau sur demande</span><span style="color:rgba(216,190,134,.4);">✦</span><span>Sans engagement</span><span style="color:rgba(216,190,134,.4);">✦</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:54px;padding:14px 0;padding-right:54px;font:600 11.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#D8BE86;white-space:nowrap;" aria-hidden="true">
+          <span>Livraison offerte dès 40 €</span><span style="color:rgba(216,190,134,.4);">✦</span><span>Torréfié en France</span><span style="color:rgba(216,190,134,.4);">✦</span><span>Coffret cadeau sur demande</span><span style="color:rgba(216,190,134,.4);">✦</span><span>Sans engagement</span><span style="color:rgba(216,190,134,.4);">✦</span><span>Livraison offerte dès 40 €</span><span style="color:rgba(216,190,134,.4);">✦</span><span>Torréfié en France</span><span style="color:rgba(216,190,134,.4);">✦</span><span>Coffret cadeau sur demande</span><span style="color:rgba(216,190,134,.4);">✦</span><span>Sans engagement</span><span style="color:rgba(216,190,134,.4);">✦</span><span>Livraison offerte dès 40 €</span><span style="color:rgba(216,190,134,.4);">✦</span><span>Torréfié en France</span><span style="color:rgba(216,190,134,.4);">✦</span><span>Coffret cadeau sur demande</span><span style="color:rgba(216,190,134,.4);">✦</span><span>Sans engagement</span><span style="color:rgba(216,190,134,.4);">✦</span>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <section data-screen-label="Manifeste" data-navtheme="light" style="background:#F4EEE4;padding:140px 7vw;">
+    <div data-reveal style="max-width:1000px;margin:0 auto;text-align:center;">
+      <span style="display:inline-block;font:600 11.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.32em;text-transform:uppercase;color:#9A5B43;">La Maison</span>
+      <p style="margin:30px 0 0;font:300 clamp(28px,3.6vw,50px)/1.28 'Cormorant Garamond',serif;color:#2A1A1C;letter-spacing:-.01em;text-wrap:balance;">Nous ne vendons pas du café. Nous composons un instant — <em style="font-style:italic;color:#7A2433;">intense, aromatique, mémorable</em> — scellé grain à grain dans un écrin que l’on n’a pas envie de jeter.</p>
+    </div>
+  </section>
+
+  <section data-screen-label="Expérience" data-navtheme="dark" class="hd-flush" style="background:#54192A;">
+    <div class="hd-2col" style="display:grid;grid-template-columns:1fr 1fr;align-items:stretch;">
+      <div data-reveal class="hd-pad" style="display:flex;flex-direction:column;justify-content:center;padding:110px 6vw;">
+        <span style="display:inline-block;font:600 11.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.32em;text-transform:uppercase;color:#D8BE86;">L’Expérience</span>
+        <h2 style="margin:22px 0 0;font:300 clamp(34px,4.4vw,62px)/1.06 'Cormorant Garamond',serif;color:#F6F0E6;letter-spacing:-.01em;">Du grain à la tasse,<br>un arôme d’exception.</h2>
+        <p style="margin:24px 0 0;max-width:440px;font:400 16px/1.72 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.72);">Fraîchement moulu, le grain libère un nez de cacao et de noisette. En expresso serré ou en filtre tout en longueur, chaque méthode révèle une facette du café.</p>
+        <div style="display:flex;gap:24px;margin:30px 0 36px;flex-wrap:wrap;">
+          <span style="display:flex;gap:10px;align-items:center;font:400 14px/1.4 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.82);"><span style="width:6px;height:6px;background:#C6A35C;transform:rotate(45deg);"></span>Expresso ou filtre</span>
+          <span style="display:flex;gap:10px;align-items:center;font:400 14px/1.4 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.82);"><span style="width:6px;height:6px;background:#C6A35C;transform:rotate(45deg);"></span>Fraîchement moulu</span>
+        </div>
+        <a href="#rituel" style="align-self:flex-start;display:inline-flex;align-items:center;padding:16px 30px;border:1px solid rgba(244,238,228,.42);color:#F4EEE4;font:600 12.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background .4s ease,color .4s ease,border-color .4s ease;" style-hover="background:#F4EEE4;color:#54192A;border-color:#F4EEE4;">Voir le rituel</a>
+      </div>
+      <div style="position:relative;min-height:540px;overflow:hidden;">
+        <img data-scrub="0.1" src="assets/drink.jpg" alt="Tasse de café Haudebourg" loading="lazy" decoding="async" style="position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;object-position:center;"/>
+      </div>
+    </div>
+  </section>
+
+  <section id="cafe" data-screen-label="Le Café" data-navtheme="light" style="background:#EFE7DA;padding:118px 7vw;">
+    <div class="hd-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,96px);align-items:center;max-width:1240px;margin:0 auto;">
+      <div data-reveal style="position:relative;">
+        <div onMouseEnter="{{ onProductEnter }}" onMouseLeave="{{ onProductLeave }}" style="position:relative;border-radius:3px;overflow:hidden;background:linear-gradient(180deg,#fbf7f0,#ece2d2);box-shadow:0 50px 90px -50px rgba(60,19,29,.55);cursor:pointer;">
+          <img ref="{{ productImgRef }}" src="assets/product-bordeaux.jpg" alt="Tube Haudebourg" loading="lazy" decoding="async" style="width:100%;height:auto;transition:transform 1.1s cubic-bezier(.2,.6,.32,1);"/>
+          <video ref="{{ productVideoRef }}" src="assets/product-360.mp4" muted loop playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .45s ease;pointer-events:none;"></video>
+        </div>
+        <span style="position:absolute;top:22px;left:22px;padding:8px 14px;background:rgba(60,19,29,.9);color:#E8CB89;font:600 10.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;border-radius:2px;">Édition {{ variantName }}</span>
+      </div>
+      <div data-reveal style="">
+        <span style="display:inline-block;font:600 11.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#9A5B43;">Le Café · 100 % Arabica de Colombie</span>
+        <h2 style="margin:16px 0 0;font:300 clamp(44px,5.4vw,76px)/1 'Cormorant Garamond',serif;color:#2A1A1C;letter-spacing:-.015em;">Original</h2>
+        <p style="margin:8px 0 0;font:400 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.04em;color:rgba(42,26,28,.55);">{{ variantSub }} · 250 g</p>
+        <p style="margin:24px 0 0;max-width:430px;font:400 16px/1.72 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.74);">Un café mono-origine, 100 % Arabica de Colombie, torréfié lentement : une tasse soyeuse, une longueur en bouche de cacao noir, de noisette torréfiée et de vanille bourbon.</p>
+
+        <div style="display:flex;flex-wrap:wrap;gap:9px;margin-top:26px;">
+          <span style="padding:9px 15px;border:1px solid rgba(42,26,28,.16);border-radius:100px;font:500 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.03em;color:#4A2F2C;">Cacao intense</span>
+          <span style="padding:9px 15px;border:1px solid rgba(42,26,28,.16);border-radius:100px;font:500 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.03em;color:#4A2F2C;">Noisette torréfiée</span>
+          <span style="padding:9px 15px;border:1px solid rgba(42,26,28,.16);border-radius:100px;font:500 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.03em;color:#4A2F2C;">Vanille bourbon</span>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:14px;margin-top:24px;">
+          <span style="font:500 11.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(42,26,28,.5);">Intensité</span>
+          <span style="display:flex;gap:6px;">
+            <span style="width:24px;height:4px;background:#7A2433;border-radius:2px;"></span>
+            <span style="width:24px;height:4px;background:#7A2433;border-radius:2px;"></span>
+            <span style="width:24px;height:4px;background:#7A2433;border-radius:2px;"></span>
+            <span style="width:24px;height:4px;background:#7A2433;border-radius:2px;"></span>
+            <span style="width:24px;height:4px;background:rgba(42,26,28,.14);border-radius:2px;"></span>
+          </span>
+        </div>
+
+        <div style="display:flex;align-items:flex-end;gap:24px;margin-top:34px;padding-top:28px;border-top:1px solid rgba(42,26,28,.12);">
+          <div>
+            <p style="margin:0;font:400 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.04em;color:rgba(42,26,28,.5);">Prix</p>
+            <p style="margin:7px 0 0;font:400 38px/1 'Cormorant Garamond',serif;color:#2A1A1C;white-space:nowrap;">{{ price }}</p>
+          </div>
+          <div style="display:flex;align-items:center;border:1px solid rgba(42,26,28,.18);border-radius:2px;overflow:hidden;">
+            <button onClick="{{ decQty }}" aria-label="Diminuer la quantité" style="width:42px;height:48px;border:none;background:transparent;font-size:20px;color:#2A1A1C;cursor:pointer;transition:background .3s ease;" style-hover="background:rgba(42,26,28,.06);">−</button>
+            <span style="width:40px;text-align:center;font:500 16px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#2A1A1C;">{{ qty }}</span>
+            <button onClick="{{ incQty }}" aria-label="Augmenter la quantité" style="width:42px;height:48px;border:none;background:transparent;font-size:20px;color:#2A1A1C;cursor:pointer;transition:background .3s ease;" style-hover="background:rgba(42,26,28,.06);">+</button>
+          </div>
+        </div>
+
+        <button onClick="{{ addToCart }}" style="margin-top:18px;width:100%;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:19px 30px;background:#54192A;color:#F4EEE4;font:600 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;border:none;border-radius:2px;cursor:pointer;transition:transform .55s cubic-bezier(.2,.6,.32,1),background .35s ease,box-shadow .55s ease;box-shadow:0 16px 40px -18px rgba(84,25,42,.8);" style-hover="transform:translateY(-3px);background:#6B2233;box-shadow:0 24px 50px -18px rgba(84,25,42,.85);">{{ addLabel }}</button>
+        <p style="margin:16px 0 0;text-align:center;font:500 12px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.03em;color:rgba(42,26,28,.5);">Expédié sous 48 h · Torréfié en France · Paiement sécurisé</p>
+        <sc-if value="{{ justAdded }}" hint-placeholder-val="{{ false }}"><a href="Panier.dc.html" style="display:block;text-align:center;margin-top:12px;font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#7A2433;text-decoration:underline;text-underline-offset:3px;">Voir le panier →</a></sc-if>
+      </div>
+    </div>
+  </section>
+
+  <section id="editions" data-screen-label="L’Original" data-navtheme="light" style="background:#F4EEE4;padding:124px 7vw;">
+    <div data-reveal style="text-align:center;max-width:760px;margin:0 auto 64px;">
+      <span style="display:inline-block;font:600 11.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.32em;text-transform:uppercase;color:#9A5B43;">L’Original</span>
+      <h2 style="margin:22px 0 0;font:300 clamp(34px,4.4vw,60px)/1.05 'Cormorant Garamond',serif;color:#2A1A1C;letter-spacing:-.01em;">Un seul café. Fait à la perfection.</h2>
+      <p style="margin:18px auto 0;max-width:520px;font:400 16px/1.65 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.62);">Pas de gamme à rallonge — une seule recette, travaillée sans relâche jusqu’à l’équilibre parfait du cacao, de la noisette et de la vanille.</p>
+    </div>
+    <div class="hd-3col" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1180px;margin:0 auto;">
+      <a href="Produit.dc.html" data-reveal style="display:block;text-decoration:none;color:inherit;">
+        <div style="overflow:hidden;border-radius:3px;background:linear-gradient(180deg,#5e1f2c,#43141f);">
+          <img src="assets/product-bordeaux.jpg" alt="Haudebourg Original — le tube" loading="lazy" decoding="async" style="width:100%;height:auto;transition:transform 1.1s cubic-bezier(.2,.6,.32,1);" style-hover="transform:scale(1.05);"/>
+        </div>
+        <h3 style="margin:22px 0 0;font:400 26px/1 'Cormorant Garamond',serif;color:#2A1A1C;">Le tube</h3>
+        <p style="margin:6px 0 0;font:400 14px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.6);">250 g de grains entiers, scellés à la main. Profond, rond, intemporel.</p>
+      </a>
+      <a href="Produit.dc.html" data-reveal style="display:block;text-decoration:none;color:inherit;">
+        <div style="overflow:hidden;border-radius:3px;background:linear-gradient(180deg,#7a2a18,#4d1810);">
+          <img src="assets/pour-red.jpg" alt="Haudebourg Original — le geste" loading="lazy" decoding="async" style="width:100%;height:auto;transition:transform 1.1s cubic-bezier(.2,.6,.32,1);" style-hover="transform:scale(1.05);"/>
+        </div>
+        <h3 style="margin:22px 0 0;font:400 26px/1 'Cormorant Garamond',serif;color:#2A1A1C;">Le geste</h3>
+        <p style="margin:6px 0 0;font:400 14px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.6);">Torréfié en France, pour un arôme intense et durable.</p>
+      </a>
+      <a href="Produit.dc.html" data-reveal style="display:block;text-decoration:none;color:inherit;">
+        <div style="overflow:hidden;border-radius:3px;background:linear-gradient(180deg,#3a2018,#21120d);">
+          <img src="assets/drink-dark.jpg" alt="Haudebourg Original — la tasse" loading="lazy" decoding="async" style="width:100%;height:auto;transition:transform 1.1s cubic-bezier(.2,.6,.32,1);" style-hover="transform:scale(1.05);"/>
+        </div>
+        <h3 style="margin:22px 0 0;font:400 26px/1 'Cormorant Garamond',serif;color:#2A1A1C;">La tasse</h3>
+        <p style="margin:6px 0 0;font:400 14px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.6);">Cacao noir, noisette torréfiée et vanille bourbon, en une longue finale.</p>
+      </a>
+    </div>
+    <div data-reveal style="text-align:center;margin-top:52px;">
+      <a href="Produit.dc.html" style="display:inline-flex;align-items:center;gap:10px;padding:17px 36px;background:#54192A;color:#F4EEE4;font:600 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:transform .5s cubic-bezier(.2,.6,.32,1),background .35s ease;" style-hover="transform:translateY(-3px);background:#6B2233;">Découvrir l’Original</a>
+    </div>
+  </section>
+
+  <section data-screen-label="Instant" data-navtheme="dark" style="position:relative;height:64vh;min-height:480px;overflow:hidden;background:#1C0E11;">
+    <img data-parallax="0.14" src="assets/texture.jpg" alt="" loading="lazy" decoding="async" style="position:absolute;left:0;right:0;top:-9%;width:100%;height:118%;object-fit:cover;object-position:center;will-change:transform;"/>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,8,11,.52),rgba(18,8,11,.74));"></div>
+    <div style="position:relative;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px;">
+      <span data-reveal style="font:600 11.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.34em;text-transform:uppercase;color:#D8BE86;">L’instant</span>
+      <h2 data-reveal style="margin:24px 0 0;font:300 clamp(40px,6vw,86px)/1 'Cormorant Garamond',serif;color:#F6F0E6;letter-spacing:-.01em;">Torréfié, jamais pressé.</h2>
+      <p data-reveal style="margin:22px 0 0;max-width:480px;font:400 16px/1.7 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.72);">Chaque tube est scellé sur un geste lent. Le luxe, ici, c’est le temps.</p>
+    </div>
+  </section>
+
+  <section id="rituel" data-screen-label="Rituel" data-navtheme="light" style="background:#EFE7DA;padding:124px 7vw;">
+    <div data-reveal style="text-align:center;max-width:760px;margin:0 auto 60px;">
+      <span style="display:inline-block;font:600 11.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.32em;text-transform:uppercase;color:#9A5B43;">Le Rituel</span>
+      <h2 style="margin:22px 0 0;font:300 clamp(34px,4.4vw,60px)/1.05 'Cormorant Garamond',serif;color:#2A1A1C;letter-spacing:-.01em;">Quatre gestes, deux minutes.</h2>
+      <p style="margin:18px 0 0;font:400 16px/1.7 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.62);">Du grain à la tasse. Voici comment naît chaque tasse Haudebourg.</p>
+    </div>
+    <div class="hd-3col" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1200px;margin:0 auto;">
+      <div data-reveal>
+        <div style="aspect-ratio:4/5;overflow:hidden;border-radius:3px;background:#ded3c0;"><img src="assets/beans.jpg" alt="Le grain" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.6,.32,1);" style-hover="transform:scale(1.06);"/></div>
+        <span style="display:block;margin:20px 0 0;font:600 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.2em;color:#9A5B43;">01</span>
+        <h3 style="margin:10px 0 0;font:400 24px/1 'Cormorant Garamond',serif;color:#2A1A1C;">Le grain</h3>
+        <p style="margin:8px 0 0;font:400 14px/1.55 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.6);">Notre Original, torréfié en France, en grains entiers.</p>
+      </div>
+      <div data-reveal>
+        <div style="aspect-ratio:4/5;overflow:hidden;border-radius:3px;background:#ded3c0;"><img src="assets/whisk.jpg" alt="Le fouet" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.6,.32,1);" style-hover="transform:scale(1.06);"/></div>
+        <span style="display:block;margin:20px 0 0;font:600 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.2em;color:#9A5B43;">02</span>
+        <h3 style="margin:10px 0 0;font:400 24px/1 'Cormorant Garamond',serif;color:#2A1A1C;">La mouture</h3>
+        <p style="margin:8px 0 0;font:400 14px/1.55 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.6);">Moulu à la demande, calibré pour votre méthode.</p>
+      </div>
+      <div data-reveal>
+        <div style="aspect-ratio:4/5;overflow:hidden;border-radius:3px;background:#ded3c0;"><img src="assets/spoon.jpg" alt="Le pic" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.6,.32,1);" style-hover="transform:scale(1.06);"/></div>
+        <span style="display:block;margin:20px 0 0;font:600 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.2em;color:#9A5B43;">03</span>
+        <h3 style="margin:10px 0 0;font:400 24px/1 'Cormorant Garamond',serif;color:#2A1A1C;">L’extraction</h3>
+        <p style="margin:8px 0 0;font:400 14px/1.55 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.6);">Expresso serré ou filtre tout en longueur, à votre goût.</p>
+      </div>
+      <div data-reveal>
+        <div style="aspect-ratio:4/5;overflow:hidden;border-radius:3px;background:#ded3c0;"><img src="assets/drink-dark.jpg" alt="Le service" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.6,.32,1);" style-hover="transform:scale(1.06);"/></div>
+        <span style="display:block;margin:20px 0 0;font:600 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.2em;color:#9A5B43;">04</span>
+        <h3 style="margin:10px 0 0;font:400 24px/1 'Cormorant Garamond',serif;color:#2A1A1C;">La dégustation</h3>
+        <p style="margin:8px 0 0;font:400 14px/1.55 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.6);">Une tasse intense, du cacao à la noisette. À la vôtre.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="abonnement" data-screen-label="Abonnement" data-navtheme="dark" style="background:#3C131D;padding:128px 7vw;">
+    <div data-reveal style="text-align:center;max-width:780px;margin:0 auto 30px;">
+      <span style="display:inline-block;font:600 11.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.32em;text-transform:uppercase;color:#D8BE86;">L’Abonnement</span>
+      <h2 style="margin:22px 0 0;font:300 clamp(34px,4.6vw,62px)/1.04 'Cormorant Garamond',serif;color:#F6F0E6;letter-spacing:-.01em;">Votre café, toujours frais.</h2>
+      <p style="margin:20px 0 0;font:400 16px/1.7 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.7);">Recevez Haudebourg fraîchement préparé, au rythme que vous choisissez. Modifiable ou suspendable à tout moment.</p>
+    </div>
+
+    <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:30px;margin:0 auto 56px;color:#D8BE86;font:600 11.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;">
+      <span>−15 % à vie</span><span style="opacity:.4;">✦</span><span>Livraison offerte</span><span style="opacity:.4;">✦</span><span>Sans engagement</span><span style="opacity:.4;">✦</span><span>Éditions réservées</span>
+    </div>
+
+    <div data-reveal class="hd-2col" style="display:grid;grid-template-columns:1.12fr .88fr;gap:0;max-width:1080px;margin:0 auto;background:rgba(246,240,230,.05);border:1px solid rgba(246,240,230,.14);border-radius:6px;overflow:hidden;">
+      <!-- Controls -->
+      <div style="padding:clamp(32px,4vw,48px);">
+        <h3 style="margin:0;font:400 30px/1 'Cormorant Garamond',serif;color:#F6F0E6;">Composez votre abonnement</h3>
+        <p style="margin:12px 0 0;font:400 14px/1.55 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.6);">Choisissez la quantité et le rythme. Le prix se met à jour en direct.</p>
+
+        <p style="margin:34px 0 13px;font:600 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D8BE86;">Tubes par livraison</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <sc-for list="{{ qtyOptions }}" as="o" hint-placeholder-count="4">
+            <button onClick="{{ o.select }}" aria-pressed="{{ o.active }}" style="flex:1;min-width:62px;padding:16px 0;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.color }};font:400 26px/1 'Cormorant Garamond',serif;border-radius:3px;cursor:pointer;transition:background .3s ease,border-color .3s ease,color .3s ease;">{{ o.n }}</button>
+          </sc-for>
+        </div>
+
+        <p style="margin:30px 0 13px;font:600 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#D8BE86;">Fréquence de livraison</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <sc-for list="{{ freqOptions }}" as="f" hint-placeholder-count="3">
+            <button onClick="{{ f.select }}" aria-pressed="{{ f.active }}" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;border:1px solid {{ f.border }};background:{{ f.bg }};color:#F6F0E6;border-radius:3px;cursor:pointer;text-align:left;transition:background .3s ease,border-color .3s ease;">
+              <span style="display:flex;align-items:center;gap:13px;">
+                <span style="width:16px;height:16px;border-radius:100px;border:1px solid {{ f.dotBorder }};background:{{ f.dotBg }};flex:none;"></span>
+                <span style="font:500 14.5px/1.2 'Helvetica Neue',Helvetica,Arial,sans-serif;">{{ f.label }}</span>
+              </span>
+              <span style="font:400 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.55);">{{ f.cadence }}</span>
+            </button>
+          </sc-for>
+        </div>
+
+        <div style="margin-top:26px;display:flex;gap:11px;align-items:center;padding:14px 16px;border:1px dashed {{ giftHintBorder }};border-radius:3px;">
+          <span style="width:30px;height:30px;border-radius:3px;background:{{ giftHintBg }};color:#E8CB89;display:flex;align-items:center;justify-content:center;font-size:14px;flex:none;transition:background .3s ease;">✦</span>
+          <span style="font:400 13px/1.45 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.78);">{{ giftHint }}</span>
+        </div>
+      </div>
+
+      <!-- Live price -->
+      <div style="padding:clamp(32px,4vw,48px);background:linear-gradient(180deg,rgba(198,163,92,.16),rgba(198,163,92,.06));border-left:1px solid rgba(246,240,230,.12);display:flex;flex-direction:column;">
+        <span style="font:600 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#D8BE86;">Votre formule</span>
+        <div style="margin:18px 0 0;display:flex;align-items:baseline;gap:8px;">
+          <span style="font:300 56px/0.9 'Cormorant Garamond',serif;color:#F6F0E6;white-space:nowrap;">{{ perDeliveryLabel }}</span>
+          <span style="font:400 14px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.6);">/ livraison</span>
+        </div>
+        <p style="margin:9px 0 0;font:400 14px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.6);"><span style="text-decoration:line-through;opacity:.7;">{{ fullLabel }}</span> &nbsp;·&nbsp; <span style="color:#E8CB89;">soit {{ monthlyLabel }} / mois</span></p>
+
+        <div style="margin:26px 0;padding:22px 0;border-top:1px solid rgba(246,240,230,.14);border-bottom:1px solid rgba(246,240,230,.14);display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;justify-content:space-between;font:400 14px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.78);"><span>{{ qtyLabel }} · Original</span><span>{{ fullLabel }}</span></div>
+          <div style="display:flex;justify-content:space-between;font:400 14px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#E8CB89;"><span>Abonné −15 %</span><span>− {{ discountLabel }}</span></div>
+          <div style="display:flex;justify-content:space-between;font:400 14px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.78);"><span>Livraison</span><span style="color:#E8CB89;">Offerte</span></div>
+          <sc-if value="{{ giftIncluded }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;justify-content:space-between;font:400 14px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.78);"><span>Coffret signature</span><span style="color:#E8CB89;">Offert</span></div>
+          </sc-if>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px;">
+          <sc-for list="{{ benefitDots }}" as="b" hint-placeholder-count="3">
+            <span style="font:400 12.5px/1.3 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.6);">{{ b.label }}</span>
+          </sc-for>
+        </div>
+
+        <button onClick="{{ activateSub }}" style="margin-top:auto;width:100%;padding:18px;border:none;background:#C6A35C;color:#2A1116;font:700 12.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;border-radius:2px;cursor:pointer;transition:transform .45s cubic-bezier(.2,.6,.32,1),background .35s ease;box-shadow:0 14px 38px -16px rgba(198,163,92,.7);" style-hover="transform:translateY(-3px);background:#d4b46c;">Activer mon abonnement</button>
+        <p style="margin:13px 0 0;text-align:center;font:400 11.5px/1.4 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.45);">Sans engagement · modifiable ou suspendable à tout moment</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="offrir" data-screen-label="Offrir" data-navtheme="light" class="hd-flush" style="background:#EFE7DA;padding:0;">
+    <div class="hd-2col" style="display:grid;grid-template-columns:1fr 1fr;align-items:stretch;">
+      <div style="position:relative;min-height:520px;overflow:hidden;">
+        <img src="assets/offrir-shimmer.gif" alt="Coffret Haudebourg — reflets iridescents" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/>
+      </div>
+      <div data-reveal class="hd-pad" style="display:flex;flex-direction:column;justify-content:center;padding:100px 6vw;">
+        <span style="display:inline-block;font:600 11.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.32em;text-transform:uppercase;color:#9A5B43;">Offrir</span>
+        <h2 style="margin:22px 0 0;font:300 clamp(36px,4.4vw,64px)/1.04 'Cormorant Garamond',serif;color:#2A1A1C;letter-spacing:-.01em;">Le cadeau qui se garde.</h2>
+        <p style="margin:22px 0 0;max-width:440px;font:400 16px/1.72 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.72);">Un écrin façonné, un mot manuscrit, une présentation soignée jusqu’au ruban. Composez un coffret à offrir — ou à s’offrir.</p>
+        <div style="display:flex;flex-direction:column;gap:14px;margin:30px 0 36px;">
+          <span style="display:flex;gap:12px;align-items:center;font:400 15px/1.4 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.78);"><span style="width:7px;height:7px;background:#C6A35C;transform:rotate(45deg);flex:none;"></span>Message personnalisé manuscrit</span>
+          <span style="display:flex;gap:12px;align-items:center;font:400 15px/1.4 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.78);"><span style="width:7px;height:7px;background:#C6A35C;transform:rotate(45deg);flex:none;"></span>Coffret rigide & ruban signature</span>
+          <span style="display:flex;gap:12px;align-items:center;font:400 15px/1.4 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.78);"><span style="width:7px;height:7px;background:#C6A35C;transform:rotate(45deg);flex:none;"></span>Livraison à la date de votre choix</span>
+        </div>
+        <a href="#cafe" style="align-self:flex-start;display:inline-flex;align-items:center;padding:17px 32px;background:#54192A;color:#F4EEE4;font:600 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:transform .55s cubic-bezier(.2,.6,.32,1),background .35s ease;" style-hover="transform:translateY(-3px);background:#6B2233;">Composer un coffret</a>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Avis" data-navtheme="light" style="background:#F4EEE4;padding:124px 7vw;">
+    <div data-reveal style="text-align:center;max-width:620px;margin:0 auto;">
+      <span style="display:inline-block;font:600 11.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#9A5B43;">Avis clients</span>
+      <h2 style="margin:18px 0 0;font:300 clamp(30px,3.8vw,50px)/1.12 'Cormorant Garamond',serif;color:#2A1A1C;">Vos premiers avis arrivent.</h2>
+      <p style="margin:18px 0 0;font:400 16px/1.65 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.62);">Haudebourg vient d’ouvrir. Les premiers retours de nos clients apparaîtront ici dès les premières commandes livrées.</p>
+    </div>
+  </section>
+
+  <section data-screen-label="Réassurance" data-navtheme="light" style="background:#EFE7DA;padding:72px 7vw;border-top:1px solid rgba(42,26,28,.08);">
+    <div class="hd-3col hd-reassure" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:1160px;margin:0 auto;">
+      <div style="padding:14px 30px;border-right:1px solid rgba(42,26,28,.12);">
+        <p style="margin:0;font:500 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#9A5B43;">01</p>
+        <p style="margin:12px 0 0;font:400 18px/1.3 'Cormorant Garamond',serif;color:#2A1A1C;">Torréfié en France</p>
+      </div>
+      <div style="padding:14px 30px;border-right:1px solid rgba(42,26,28,.12);">
+        <p style="margin:0;font:500 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#9A5B43;">02</p>
+        <p style="margin:12px 0 0;font:400 18px/1.3 'Cormorant Garamond',serif;color:#2A1A1C;">Livraison soignée sous 48 h</p>
+      </div>
+      <div style="padding:14px 30px;border-right:1px solid rgba(42,26,28,.12);">
+        <p style="margin:0;font:500 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#9A5B43;">03</p>
+        <p style="margin:12px 0 0;font:400 18px/1.3 'Cormorant Garamond',serif;color:#2A1A1C;">Paiement 100 % sécurisé</p>
+      </div>
+      <div style="padding:14px 30px;">
+        <p style="margin:0;font:500 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#9A5B43;">04</p>
+        <p style="margin:12px 0 0;font:400 18px/1.3 'Cormorant Garamond',serif;color:#2A1A1C;">Satisfait ou remboursé 30 j</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="CTA" data-navtheme="dark" style="position:relative;overflow:hidden;background:#54192A;padding:130px 7vw;">
+    <img src="assets/pour-red.jpg" alt="" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.16;"/>
+    <div style="position:absolute;inset:0;background:radial-gradient(100% 100% at 50% 30%,rgba(84,25,42,.4),#54192A 78%);"></div>
+    <div data-reveal style="position:relative;text-align:center;max-width:760px;margin:0 auto;">
+      <h2 style="margin:0;font:300 clamp(38px,5.4vw,78px)/1.03 'Cormorant Garamond',serif;color:#F6F0E6;letter-spacing:-.01em;">Le café que l’on n’oublie pas.</h2>
+      <p style="margin:22px 0 0;font:400 16px/1.7 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.72);">Commandez l’Original aujourd’hui — expédié sous 48 h, torréfié pour vous.</p>
+      <div style="display:flex;gap:13px;justify-content:center;margin-top:36px;flex-wrap:wrap;">
+        <a href="#cafe" style="display:inline-flex;align-items:center;padding:18px 36px;background:#C6A35C;color:#2A1116;font:600 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:transform .55s cubic-bezier(.2,.6,.32,1),background .35s ease,box-shadow .55s ease;box-shadow:0 16px 42px -16px rgba(198,163,92,.7);" style-hover="transform:translateY(-3px);background:#d4b46c;box-shadow:0 24px 52px -16px rgba(198,163,92,.8);">Commander l’Original</a>
+        <a href="#abonnement" style="display:inline-flex;align-items:center;padding:18px 34px;border:1px solid rgba(244,238,228,.42);color:#F4EEE4;font:600 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background .4s ease,color .4s ease;" style-hover="background:#F4EEE4;color:#54192A;">S’abonner</a>
+      </div>
+    </div>
+  </section>
+
+  <footer data-screen-label="Footer" data-navtheme="dark" style="background:#3C131D;padding:80px 7vw 40px;">
+    <div class="hd-2col" style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:44px;max-width:1200px;margin:0 auto;">
+      <div>
+        <a href="#top" style="font:500 28px/1 'Cormorant Garamond',serif;color:#F6F0E6;text-decoration:none;">haudebourg</a>
+        <p style="margin:18px 0 0;max-width:280px;font:400 14px/1.65 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.55);">Café de spécialité. Torréfié en France, scellé à la main. Maison fondée à Paris.</p>
+        <div style="display:flex;gap:12px;margin-top:22px;">
+          <a href="https://instagram.com/haudebourg" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid rgba(244,238,228,.28);border-radius:50%;color:rgba(246,240,230,.7);transition:color .3s ease,border-color .3s ease,background .3s ease;" style-hover="color:#2A1116;background:#D8BE86;border-color:#D8BE86;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"></circle></svg>
+          </a>
+          <a href="https://tiktok.com/@haudebourg" target="_blank" rel="noopener noreferrer" aria-label="TikTok" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid rgba(244,238,228,.28);border-radius:50%;color:rgba(246,240,230,.7);transition:color .3s ease,border-color .3s ease,background .3s ease;" style-hover="color:#2A1116;background:#D8BE86;border-color:#D8BE86;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 2h-3.1v13.3a2.6 2.6 0 1 1-2.2-2.57V9.5a5.74 5.74 0 1 0 5.3 5.72V8.84a6.55 6.55 0 0 0 3.9 1.27V7a3.66 3.66 0 0 1-3.9-3.5V2z"></path></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p style="margin:0 0 16px;font:600 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#D8BE86;">Boutique</p>
+        <div style="display:flex;flex-direction:column;gap:11px;">
+          <a href="#cafe" style="font:400 14px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.7);text-decoration:none;transition:color .3s ease;" style-hover="color:#F6F0E6;">Le Café Original</a>
+          <a href="#editions" style="font:400 14px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.7);text-decoration:none;transition:color .3s ease;" style-hover="color:#F6F0E6;">L’Original</a>
+          <a href="#abonnement" style="font:400 14px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.7);text-decoration:none;transition:color .3s ease;" style-hover="color:#F6F0E6;">L’Abonnement</a>
+          <a href="#offrir" style="font:400 14px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.7);text-decoration:none;transition:color .3s ease;" style-hover="color:#F6F0E6;">Offrir</a>
+        </div>
+      </div>
+      <div>
+        <p style="margin:0 0 16px;font:600 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#D8BE86;">Maison</p>
+        <div style="display:flex;flex-direction:column;gap:11px;">
+          <a href="#" style="font:400 14px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.7);text-decoration:none;transition:color .3s ease;" style-hover="color:#F6F0E6;">Notre histoire</a>
+          <a href="#" style="font:400 14px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.7);text-decoration:none;transition:color .3s ease;" style-hover="color:#F6F0E6;">Torréfaction</a>
+          <a href="#" style="font:400 14px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.7);text-decoration:none;transition:color .3s ease;" style-hover="color:#F6F0E6;">Livraison & retours</a>
+          <a href="Contact.dc.html" style="font:400 14px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.7);text-decoration:none;transition:color .3s ease;" style-hover="color:#F6F0E6;">Contact</a>
+        </div>
+      </div>
+      <div>
+        <p style="margin:0 0 16px;font:600 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#D8BE86;">Lettre Haudebourg</p>
+        <p style="margin:0 0 16px;font:400 13.5px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.6);">Nouveautés & rituels du café, en avant-première.</p>
+        <div style="display:flex;border:1px solid rgba(244,238,228,.28);border-radius:2px;overflow:hidden;">
+          <input type="email" placeholder="Votre e-mail" style="flex:1;min-width:0;background:transparent;border:none;outline:none;padding:13px 14px;font:400 14px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#F6F0E6;"/>
+          <button style="padding:0 18px;background:#C6A35C;border:none;color:#2A1116;font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.06em;cursor:pointer;transition:background .3s ease;" style-hover="background:#d4b46c;">OK</button>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1200px;margin:54px auto 0;padding-top:24px;border-top:1px solid rgba(246,240,230,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;">
+      <span style="font:400 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.45);">© 2026 Haudebourg. Tous droits réservés.</span>
+      <span style="font:400 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.45);display:flex;gap:8px;flex-wrap:wrap;"><a href="Mentions-legales.dc.html" style="color:rgba(246,240,230,.45);text-decoration:none;transition:color .3s ease;" style-hover="color:#F6F0E6;">Mentions légales</a><span>·</span><a href="Mentions-legales.dc.html#cgv" style="color:rgba(246,240,230,.45);text-decoration:none;transition:color .3s ease;" style-hover="color:#F6F0E6;">CGV</a><span>·</span><a href="Mentions-legales.dc.html#confidentialite" style="color:rgba(246,240,230,.45);text-decoration:none;transition:color .3s ease;" style-hover="color:#F6F0E6;">Confidentialité</a></span>
+    </div>
+  </footer>
+
+</div>
+
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#54192A"/><rect x="40" y="28" width="20" height="44" rx="4" fill="#C6A35C"/><text x="50" y="86" font-family="Georgia,serif" font-size="11" fill="#E8CB89" text-anchor="middle">h</text></svg>
+</template>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900},&quot;announcementBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;popularTier&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Découverte&quot;,&quot;Connaisseur&quot;,&quot;Collection&quot;],&quot;default&quot;:&quot;Connaisseur&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;heroImage&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Tube&quot;,&quot;Versé&quot;,&quot;Sombre&quot;],&quot;default&quot;:&quot;Tube&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  navRef = React.createRef();
+  rootRef = React.createRef();
+  heroImgRef = React.createRef();
+  productImgRef = React.createRef();
+  productVideoRef = React.createRef();
+  state = { count: 0, qty: 1, variant: 'bordeaux', tier: null, added: false, miniOpen: false, menuOpen: false, subQty: 2, subFreq: 'month', lang: ((typeof localStorage !== 'undefined' && localStorage.getItem('hd_lang')) || 'fr'), langOpen: false };
+
+  _norm = (s) => (s || '').replace(/[\u00A0\u202F]/g, ' ').replace(/[\u2019']/g, '\u2019').replace(/\s+/g, ' ').trim();
+
+  TR = [
+    // Nav
+    ['Le Café', 'The Coffee'], ['L\u2019Original', 'The Original'], ['Le Rituel', 'The Ritual'], ['L\u2019Abonnement', 'Subscription'], ['Offrir', 'Gift'],
+    // Hero
+    ['Café de spécialité — Édition Original', 'Specialty coffee — Original Edition'],
+    ['L\u2019art du café,', 'The art of coffee,'], ['torréfié en France.', 'roasted in France.'],
+    ['Des grains 100 % Arabica de Colombie, torréfiés en France et scellés à la main. Le café que l\u2019on garde — et que l\u2019on offre.', '100% Arabica beans from Colombia, roasted in France and sealed by hand. The coffee you keep — and the one you give.'],
+    ['Découvrir le café', 'Discover the coffee'], ['Composer mon abonnement', 'Build my subscription'],
+    ['Torréfié en France', 'Roasted in France'], ['Livraison offerte dès 40 €', 'Free shipping over $43'], ['Sans engagement', 'No commitment'],
+    ['Coffret cadeau sur demande', 'Gift box on request'],
+    // Manifesto
+    ['La Maison', 'The House'],
+    ['Nous ne vendons pas du café. Nous composons un instant —', 'We don\u2019t sell coffee. We compose a moment —'],
+    ['intense, aromatique, mémorable', 'intense, aromatic, memorable'],
+    ['— scellé grain à grain dans un écrin que l\u2019on n\u2019a pas envie de jeter.', '— sealed bean by bean in a case you won\u2019t want to throw away.'],
+    // Experience
+    ['L\u2019Expérience', 'The Experience'], ['Du grain à la tasse,', 'From bean to cup,'], ['un arôme d\u2019exception.', 'an exceptional aroma.'],
+    ['Fraîchement moulu, le grain libère un nez de cacao et de noisette. En expresso serré ou en filtre tout en longueur, chaque méthode révèle une facette du café.', 'Freshly ground, the bean releases notes of cocoa and hazelnut. As a tight espresso or a long filter, each method reveals a facet of the coffee.'],
+    ['Expresso ou filtre', 'Espresso or filter'], ['Fraîchement moulu', 'Freshly ground'], ['Voir le rituel', 'See the ritual'],
+    // Product
+    ['Édition Original', 'Original Edition'], ['Le Café · 100 % Arabica de Colombie', 'The Coffee · 100% Colombian Arabica'],
+    ['L\u2019édition signature · 250 g', 'The signature edition · 250 g'],
+    ['Un café mono-origine, 100 % Arabica de Colombie, torréfié lentement : une tasse soyeuse, une longueur en bouche de cacao noir, de noisette torréfiée et de vanille bourbon.', 'A single-origin coffee, 100% Colombian Arabica, slowly roasted: a silky cup with a long finish of dark cocoa, roasted hazelnut and bourbon vanilla.'],
+    ['Cacao intense', 'Intense cocoa'], ['Noisette torréfiée', 'Roasted hazelnut'], ['Vanille bourbon', 'Bourbon vanilla'], ['Intensité', 'Intensity'], ['Prix', 'Price'],
+    ['Ajouter au panier', 'Add to cart'], ['Ajouté au panier ✓', 'Added to cart ✓'],
+    ['Expédié sous 48 h · Torréfié en France · Paiement sécurisé', 'Shipped within 48h · Roasted in France · Secure payment'],
+    ['Voir le panier →', 'View cart →'],
+    // L'Original
+    ['Un seul café. Fait à la perfection.', 'One coffee. Made to perfection.'],
+    ['Pas de gamme à rallonge — une seule recette, travaillée sans relâche jusqu\u2019à l\u2019équilibre parfait du cacao, de la noisette et de la vanille.', 'No endless range — a single recipe, refined relentlessly to the perfect balance of cocoa, hazelnut and vanilla.'],
+    ['Le tube', 'The tube'], ['250 g de grains entiers, scellés à la main. Profond, rond, intemporel.', '250 g of whole beans, sealed by hand. Deep, round, timeless.'],
+    ['Le geste', 'The craft'], ['Torréfié en France, pour un arôme intense et durable.', 'Roasted in France, for an intense, lasting aroma.'],
+    ['La tasse', 'The cup'], ['Cacao noir, noisette torréfiée et vanille bourbon, en une longue finale.', 'Dark cocoa, roasted hazelnut and bourbon vanilla, in a long finish.'],
+    ['Découvrir l\u2019Original', 'Discover the Original'],
+    // Instant
+    ['L\u2019instant', 'The Moment'], ['Torréfié, jamais pressé.', 'Roasted, never rushed.'],
+    ['Chaque tube est scellé sur un geste lent. Le luxe, ici, c\u2019est le temps.', 'Each tube is sealed with a slow gesture. Here, luxury is time.'],
+    // Ritual
+    ['Quatre gestes, deux minutes.', 'Four steps, two minutes.'],
+    ['Du grain à la tasse. Voici comment naît chaque tasse Haudebourg.', 'From bean to cup. Here\u2019s how every Haudebourg cup is born.'],
+    ['Le grain', 'The bean'], ['Notre Original, torréfié en France, en grains entiers.', 'Our Original, roasted in France, as whole beans.'],
+    ['La mouture', 'The grind'], ['Moulu à la demande, calibré pour votre méthode.', 'Ground on demand, calibrated for your method.'],
+    ['L\u2019extraction', 'The extraction'], ['Expresso serré ou filtre tout en longueur, à votre goût.', 'Tight espresso or long filter, to your taste.'],
+    ['La dégustation', 'The tasting'], ['Une tasse intense, du cacao à la noisette. À la vôtre.', 'An intense cup, from cocoa to hazelnut. Cheers.'],
+    // Subscription
+    ['Votre café, toujours frais.', 'Your coffee, always fresh.'],
+    ['Recevez Haudebourg fraîchement préparé, au rythme que vous choisissez. Modifiable ou suspendable à tout moment.', 'Receive Haudebourg freshly prepared, at the pace you choose. Editable or pausable anytime.'],
+    ['−15 % à vie', '−15% for life'], ['Livraison offerte', 'Free shipping'], ['Éditions réservées', 'Reserved editions'],
+    ['Composez votre abonnement', 'Build your subscription'], ['Choisissez la quantité et le rythme. Le prix se met à jour en direct.', 'Choose the quantity and pace. The price updates live.'],
+    ['Tubes par livraison', 'Tubes per delivery'], ['Fréquence de livraison', 'Delivery frequency'],
+    ['Toutes les 2 semaines', 'Every 2 weeks'], ['Chaque mois', 'Every month'], ['Tous les 2 mois', 'Every 2 months'],
+    ['≈ 2 / mois', '≈ 2 / month'], ['1 / mois', '1 / month'], ['1 / 2 mois', '1 / 2 months'],
+    ['Coffret signature offert avec cette formule.', 'Signature gift box included with this plan.'],
+    ['Passez à 3 tubes pour recevoir le coffret signature offert.', 'Add a 3rd tube to receive the signature gift box free.'],
+    ['Votre formule', 'Your plan'], ['/ livraison', '/ delivery'], ['soit', 'i.e.'], ['/ mois', '/ month'],
+    ['Abonné −15 %', 'Subscriber −15%'], ['Livraison', 'Shipping'], ['Offerte', 'Free'], ['Coffret signature', 'Signature box'], ['Offert', 'Included'],
+    ['Activer mon abonnement', 'Activate my subscription'],
+    ['Sans engagement · modifiable ou suspendable à tout moment', 'No commitment · editable or pausable anytime'],
+    // Gift
+    ['Le cadeau qui se garde.', 'A gift worth keeping.'],
+    ['Un écrin façonné, un mot manuscrit, une présentation soignée jusqu\u2019au ruban. Composez un coffret à offrir — ou à s\u2019offrir.', 'A crafted case, a handwritten note, a presentation refined down to the ribbon. Build a box to gift — or to treat yourself.'],
+    ['Message personnalisé manuscrit', 'Handwritten personal message'], ['Coffret rigide & ruban signature', 'Rigid case & signature ribbon'], ['Livraison à la date de votre choix', 'Delivery on the date you choose'],
+    ['Composer un coffret', 'Build a gift box'],
+    // Reviews
+    ['Avis clients', 'Customer reviews'], ['Vos premiers avis arrivent.', 'Your first reviews are coming.'],
+    ['Haudebourg vient d\u2019ouvrir. Les premiers retours de nos clients apparaîtront ici dès les premières commandes livrées.', 'Haudebourg has just launched. The first feedback from our customers will appear here once the first orders are delivered.'],
+    // Reassurance
+    ['Livraison soignée sous 48 h', 'Careful delivery within 48h'], ['Paiement 100 % sécurisé', '100% secure payment'], ['Satisfait ou remboursé 30 j', '30-day money-back guarantee'],
+    // CTA
+    ['Le café que l\u2019on n\u2019oublie pas.', 'The coffee you won\u2019t forget.'],
+    ['Commandez l\u2019Original aujourd\u2019hui — expédié sous 48 h, torréfié pour vous.', 'Order the Original today — shipped within 48h, roasted for you.'],
+    ['Commander l\u2019Original', 'Order the Original'], ['S\u2019abonner', 'Subscribe'],
+    // Footer
+    ['Café de spécialité. Torréfié en France, scellé à la main. Maison fondée à Paris.', 'Specialty coffee. Roasted in France, sealed by hand. House founded in Paris.'],
+    ['Boutique', 'Shop'], ['Le Café Original', 'The Original Coffee'], ['Maison', 'House'], ['Notre histoire', 'Our story'], ['Torréfaction', 'Roasting'], ['Livraison & retours', 'Shipping & returns'], ['Contact', 'Contact'],
+    ['Lettre Haudebourg', 'Haudebourg Letter'], ['Nouveautés & rituels du café, en avant-première.', 'Coffee news & rituals, in preview.'],
+    ['Votre e-mail', 'Your email'],
+    ['© 2026 Haudebourg. Tous droits réservés.', '© 2026 Haudebourg. All rights reserved.'], ['Mentions légales · CGV · Confidentialité', 'Legal · Terms · Privacy'],
+    // Mini cart
+    ['Votre panier est vide.', 'Your cart is empty.'], ['Sous-total', 'Subtotal'], ['Le panier', 'View cart'], ['Commander', 'Checkout'],
+    ['Panier ·', 'Cart ·']
+  ];
+
+  buildDicts() {
+    if (this._fr2en) return;
+    this._fr2en = {}; this._en2fr = {};
+    for (const [fr, en] of this.TR) { this._fr2en[this._norm(fr)] = en; this._en2fr[this._norm(en)] = fr; }
+  }
+
+  _special(raw, lang) {
+    let m;
+    if (lang === 'en') {
+      if (m = raw.match(/^(\s*)Panier · (.+?)(\s*)$/)) return m[1] + 'Cart · ' + m[2] + m[3];
+      if (m = raw.match(/^(\s*)soit (.+?) \/ mois(\s*)$/)) return m[1] + 'i.e. ' + m[2] + ' / month' + m[3];
+    } else {
+      if (m = raw.match(/^(\s*)Cart · (.+?)(\s*)$/)) return m[1] + 'Panier · ' + m[2] + m[3];
+      if (m = raw.match(/^(\s*)i\.e\. (.+?) \/ month(\s*)$/)) return m[1] + 'soit ' + m[2] + ' / mois' + m[3];
+    }
+    return null;
+  }
+
+  applyLang(lang) {
+    this.buildDicts();
+    const root = (this.rootRef && this.rootRef.current) ? this.rootRef.current : document.body;
+    if (!root) return;
+    const map = lang === 'en' ? this._fr2en : this._en2fr;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: (n) => {
+        const p = n.parentNode;
+        if (!p) return NodeFilter.FILTER_REJECT;
+        const tag = p.nodeName;
+        if (tag === 'SCRIPT' || tag === 'STYLE') return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest('svg')) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const nodes = []; let cur;
+    while (cur = walker.nextNode()) nodes.push(cur);
+    for (const node of nodes) {
+      const raw = node.nodeValue;
+      const key = this._norm(raw);
+      if (!key) continue;
+      const t = map[key];
+      if (t === undefined) {
+        const sp = this._special(raw, lang);
+        if (sp !== null) node.nodeValue = sp;
+        continue;
+      }
+      const lead = (raw.match(/^\s*/) || [''])[0];
+      const trail = (raw.match(/\s*$/) || [''])[0];
+      node.nodeValue = lead + t + trail;
+    }
+    root.querySelectorAll('[placeholder]').forEach((el) => {
+      const k = this._norm(el.getAttribute('placeholder'));
+      if (map[k] !== undefined) el.setAttribute('placeholder', map[k]);
+    });
+    try { if (document.documentElement) document.documentElement.lang = (lang === 'en' ? 'en' : 'fr'); } catch (e) {}
+  }
+
+  setLang(l) {
+    try { localStorage.setItem('hd_lang', l); } catch (e) {}
+    this.setState({ lang: l, langOpen: false, menuOpen: false });
+  }
+
+  USD_RATE = 1.08;
+  eur(n) {
+    if (this.state && this.state.lang === 'en') {
+      const r = Math.round(n * this.USD_RATE * 100) / 100;
+      return '$' + (Number.isInteger(r) ? r.toString() : r.toFixed(2));
+    }
+    const r = Math.round(n * 100) / 100;
+    return (Number.isInteger(r) ? r.toString() : r.toFixed(2).replace('.', ',')) + ' €';
+  }
+  MINICAT = {
+    bordeaux: { name: 'Original', img: 'assets/product-bordeaux.jpg', price: 14.90 }
+  };
+  miniData() {
+    if (!this.CART) return { items: [], empty: true, subtotal: this.eur(0) };
+    let sub = 0;
+    const items = this.CART.items().map(i => {
+      const c = this.MINICAT[i.id] || { name: i.id, img: '', price: 0 };
+      sub += c.price * i.qty;
+      const img = (i.id === 'bordeaux') ? this.res('productBordeaux', c.img) : c.img;
+      return { id: i.id, name: c.name, bg: 'url(' + img + ')', qtyPrice: i.qty + ' × ' + this.eur(c.price), remove: () => this.CART.remove(i.id) };
+    });
+    return { items, empty: items.length === 0, subtotal: this.eur(sub) };
+  }
+  choosePlan(name) {
+    try { if (this.CART) this.CART.setSubscribe(true); } catch (e) {}
+    this.setState({ tier: name });
+    try { window.location.href = 'Panier.dc.html'; } catch (e) {}
+  }
+
+  FREQS = [
+    { id: '2weeks', label: 'Toutes les 2 semaines', cadence: '≈ 2 / mois', perMonth: 26 / 12 },
+    { id: 'month', label: 'Chaque mois', cadence: '1 / mois', perMonth: 1 },
+    { id: '2months', label: 'Tous les 2 mois', cadence: '1 / 2 mois', perMonth: 0.5 }
+  ];
+
+  activateSub() {
+    try {
+      if (this.CART) {
+        this.CART.setSubscribe(true);
+        this.CART.setQty('bordeaux', this.state.subQty || 2);
+        if (this.CART.count() === 0) this.CART.add('bordeaux', this.state.subQty || 2);
+      }
+    } catch (e) {}
+    try { window.location.href = 'Panier.dc.html'; } catch (e) {}
+  }
+
+  res(id, fallback) { return (typeof window !== 'undefined' && window.__resources && window.__resources[id]) || fallback; }
+
+  applyImages() {
+    const variants = {
+      bordeaux: this.res('productBordeaux', 'assets/product-bordeaux.jpg')
+    };
+    const heroMap = {
+      'Tube': this.res('heroBurgundy', 'assets/hero-burgundy.jpg'),
+      'Versé': this.res('heroPour', 'assets/hero-pour.jpg'),
+      'Sombre': this.res('drinkDark', 'assets/drink-dark.jpg')
+    };
+    const h = heroMap[this.props.heroImage || 'Tube'] || heroMap['Tube'];
+    const p = variants[this.state.variant || 'bordeaux'];
+    if (this.heroImgRef.current && this.heroImgRef.current.getAttribute('src') !== h) this.heroImgRef.current.src = h;
+    if (this.productImgRef.current && this.productImgRef.current.getAttribute('src') !== p) this.productImgRef.current.src = p;
+  }
+
+  componentDidUpdate() { this.applyImages(); this.applyLang(this.state.lang); if (this._applyNav) this._applyNav(); }
+
+  async componentDidMount() {
+    this.applyImages();
+    this.applyLang(this.state.lang);
+    try {
+      const mod = await import('./cart-store.js');
+      this.CART = mod.CART;
+      this._unsub = this.CART.subscribe(() => this.setState({ count: this.CART.count() }));
+      this.setState({ count: this.CART.count() });
+    } catch (e) {}
+    const root = (this.rootRef && this.rootRef.current) ? this.rootRef.current : document;
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (this.rootRef && this.rootRef.current && !reduce) this.rootRef.current.classList.add('hd-anim');
+
+    // Scroll-driven reveals (Apple-style fade-up, staggered per group) — inline styles for reliability
+    const reveals = reduce ? [] : Array.from(root.querySelectorAll('[data-reveal]'));
+    const showReveal = (el) => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    };
+    if (reveals.length) {
+      const groups = new Map();
+      reveals.forEach((el) => {
+        const p = el.parentElement;
+        if (!groups.has(p)) groups.set(p, []);
+        groups.get(p).push(el);
+      });
+      reveals.forEach((el) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(42px) scale(.99)';
+        el.style.transition = 'opacity 1s cubic-bezier(.16,.74,.24,1), transform 1.15s cubic-bezier(.16,.74,.24,1)';
+        el.style.willChange = 'opacity, transform';
+      });
+      groups.forEach((list) => {
+        if (list.length > 1) list.forEach((el, i) => { el.style.transitionDelay = (i * 95) + 'ms'; });
+      });
+      // Primary trigger in real browsers: IntersectionObserver.
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              showReveal(e.target);
+              const k = reveals.indexOf(e.target);
+              if (k > -1) reveals.splice(k, 1);
+              io.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+        reveals.slice().forEach((el) => io.observe(el));
+        this._io = io;
+      }
+    }
+
+    // Count-up numbers when they scroll into view
+    const counters = Array.from(root.querySelectorAll('[data-count]'));
+    const fmtCount = (n) => Math.round(n).toLocaleString('fr-FR').replace(/\u202f/g, ' ');
+    const runCount = (el) => {
+      if (el._counted) return; el._counted = true;
+      const target = parseFloat(el.getAttribute('data-count')) || 0;
+      if (reduce) { el.textContent = fmtCount(target); return; }
+      const dur = 1500, t0 = performance.now();
+      const tick = (now) => {
+        const p = Math.min(1, (now - t0) / dur);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmtCount(target * eased);
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    if (counters.length && 'IntersectionObserver' in window) {
+      const cio = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            runCount(e.target);
+            const k = counters.indexOf(e.target);
+            if (k > -1) counters.splice(k, 1);
+            cio.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.6 });
+      counters.slice().forEach((el) => cio.observe(el));
+      this._cio = cio;
+    }
+
+    // Nav state + parallax
+    const nav = this.navRef.current;
+    const links = nav ? Array.from(nav.querySelectorAll('[data-navlink]')) : [];
+    const logo = nav ? nav.querySelector('[data-navlogo]') : null;
+    const cta = nav ? nav.querySelector('[data-navcta]') : null;
+    const acct = nav ? nav.querySelector('[data-navacct]') : null;
+    const lang = nav ? nav.querySelector('[data-navlang]') : null;
+    const burger = nav ? nav.querySelector('[data-navburger]') : null;
+    const navThemeEls = Array.from(root.querySelectorAll('[data-navtheme]'));
+    const px = Array.from(root.querySelectorAll('[data-parallax]'));
+    const scrub = reduce ? [] : Array.from(root.querySelectorAll('[data-scrub]'));
+    const heroText = reduce ? null : root.querySelector('[data-hero-text]');
+    let ticking = false;
+    const apply = () => {
+      const y = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+      if (nav) {
+        const navMidY = 44;
+        let theme = this._navTheme || 'dark';
+        for (let i = 0; i < navThemeEls.length; i++) {
+          const r = navThemeEls[i].getBoundingClientRect();
+          if (r.top <= navMidY && r.bottom > navMidY) { theme = navThemeEls[i].getAttribute('data-navtheme') || 'dark'; break; }
+        }
+        this._navTheme = theme;
+        const solid = y > 48;
+        const stateKey = solid + '|' + theme;
+        if (stateKey !== this._navState) {
+          this._navState = stateKey;
+          const light = theme === 'light';
+          nav.style.background = solid ? (light ? 'rgba(244,238,228,0.9)' : 'rgba(42,18,24,0.82)') : 'transparent';
+          nav.style.backdropFilter = solid ? 'saturate(150%) blur(18px)' : 'none';
+          nav.style.webkitBackdropFilter = solid ? 'saturate(150%) blur(18px)' : 'none';
+          nav.style.borderBottomColor = solid ? (light ? 'rgba(42,26,28,0.1)' : 'rgba(244,238,228,0.12)') : 'transparent';
+          const c = light ? '#221A1C' : '#F4EEE4';
+          const bd = light ? 'rgba(42,26,28,0.25)' : 'rgba(244,238,228,0.5)';
+          links.forEach((a) => { a.style.color = c; });
+          if (logo) logo.style.color = light ? '#54192A' : '#F4EEE4';
+          if (acct) { acct.style.color = light ? '#54192A' : '#F4EEE4'; acct.style.borderColor = bd; }
+          if (cta) { cta.style.color = c; cta.style.borderColor = bd; }
+          if (lang) { lang.style.color = c; lang.style.borderColor = bd; }
+          if (burger) { burger.style.color = c; burger.style.borderColor = bd; }
+        }
+      }
+      const vh = window.innerHeight;
+      px.forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.bottom < -vh * 0.5 || r.top > vh * 1.5) return; // skip far-offscreen
+        const off = (r.top + r.height / 2) - vh / 2;
+        const sp = parseFloat(el.getAttribute('data-parallax')) || 0.1;
+        el.style.transform = 'translate3d(0,' + (off * -sp).toFixed(1) + 'px,0)';
+      });
+      // Zoom + drift on full-bleed images as they cross the viewport
+      scrub.forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.bottom < -vh * 0.5 || r.top > vh * 1.5) return; // skip far-offscreen
+        const center = (r.top + r.height / 2) - vh / 2;
+        const sp = parseFloat(el.getAttribute('data-scrub')) || 0.12;
+        const prog = Math.max(-1, Math.min(1, center / vh));
+        const scale = (1.06 - prog * 0.05).toFixed(4);
+        el.style.transform = 'translate3d(0,' + (center * -sp).toFixed(1) + 'px,0) scale(' + scale + ')';
+      });
+      // Hero copy drifts up and fades as you scroll past it
+      if (heroText) {
+        const p = Math.max(0, Math.min(1, y / (vh * 0.85)));
+        heroText.style.transform = 'translate3d(0,' + (p * 64).toFixed(1) + 'px,0)';
+        heroText.style.opacity = (1 - p * 0.85).toFixed(3);
+      }
+      // Reveal-on-enter (driven by the same scroll loop for robustness)
+      if (reveals.length) {
+        const trigger = vh * 0.9;
+        for (let i = reveals.length - 1; i >= 0; i--) {
+          const el = reveals[i];
+          if (el.getBoundingClientRect().top < trigger) {
+            showReveal(el);
+            reveals.splice(i, 1);
+          }
+        }
+      }
+      for (let i = counters.length - 1; i >= 0; i--) {
+        const el = counters[i];
+        if (el.getBoundingClientRect().top < vh * 0.85) { runCount(el); counters.splice(i, 1); }
+      }
+      ticking = false;
+    };
+    const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(apply); } };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    document.addEventListener('scroll', onScroll, { passive: true, capture: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    this._onScroll = onScroll;
+    this._applyNav = apply;
+    apply();
+    requestAnimationFrame(apply);
+    [120, 400, 900].forEach((d) => setTimeout(apply, d));
+    window.addEventListener('load', apply);
+
+    // Failsafe: if the visitor never scrolls (or the host can't scroll),
+    // reveal everything after a short idle so content is never stuck hidden.
+    if (reveals.length) {
+      let scrolled = false;
+      const markScrolled = () => {
+        if ((window.scrollY || document.documentElement.scrollTop || 0) > 6) {
+          scrolled = true;
+          window.removeEventListener('scroll', markScrolled);
+        }
+      };
+      window.addEventListener('scroll', markScrolled, { passive: true });
+      this._failsafe = setTimeout(() => {
+        if (!scrolled) reveals.slice().forEach((el, i) => setTimeout(() => showReveal(el), i * 60));
+      }, 2600);
+    }
+  }
+
+  componentWillUnmount() {
+    if (this._unsub) this._unsub();
+    if (this._io) this._io.disconnect();
+    if (this._cio) this._cio.disconnect();
+    if (this._failsafe) clearTimeout(this._failsafe);
+    if (this._onScroll) {
+      window.removeEventListener('scroll', this._onScroll);
+      window.removeEventListener('resize', this._onScroll);
+    }
+    clearTimeout(this._t);
+  }
+
+  renderVals() {
+    const gold = '#C6A35C';
+    const line = 'rgba(244,238,228,.16)';
+    const variants = {
+      bordeaux: { img: 'assets/product-bordeaux.jpg', name: 'Original', sub: 'L’édition signature' }
+    };
+    const heroMap = {
+      'Tube': 'assets/hero-burgundy.jpg',
+      'Versé': 'assets/hero-pour.jpg',
+      'Sombre': 'assets/drink-dark.jpg'
+    };
+    const v = this.state.variant || 'bordeaux';
+    const qty = this.state.qty || 1;
+    const unit = 14.90;
+    const popular = this.props.popularTier || 'Connaisseur';
+    const tier = this.state.tier || popular;
+    const mini = this.miniData();
+
+    // Subscription configurator
+    const gold2 = '#C6A35C';
+    const subQty = this.state.subQty || 2;
+    const freq = this.FREQS.find(f => f.id === this.state.subFreq) || this.FREQS[1];
+    const subUnit = unit * 0.85;
+    const perDelivery = subUnit * subQty;
+    const fullPerDelivery = unit * subQty;
+    const monthly = perDelivery * freq.perMonth;
+    const giftIncluded = subQty >= 3;
+    const qtyOptions = [1, 2, 3, 4].map(n => {
+      const active = subQty === n;
+      return {
+        n, active,
+        select: () => this.setState({ subQty: n }),
+        bg: active ? gold2 : 'rgba(246,240,230,.04)',
+        color: active ? '#2A1116' : '#F6F0E6',
+        border: active ? gold2 : 'rgba(246,240,230,.2)'
+      };
+    });
+    const freqOptions = this.FREQS.map(f => {
+      const active = freq.id === f.id;
+      return {
+        label: f.label, cadence: f.cadence, active,
+        select: () => this.setState({ subFreq: f.id }),
+        bg: active ? 'rgba(198,163,92,.16)' : 'rgba(246,240,230,.03)',
+        border: active ? gold2 : 'rgba(246,240,230,.16)',
+        dotBg: active ? gold2 : 'transparent',
+        dotBorder: active ? gold2 : 'rgba(246,240,230,.4)'
+      };
+    });
+
+    return {
+      langCode: (this.state.lang === 'en' ? 'EN' : 'FR'),
+      langOpen: this.state.langOpen,
+      toggleLang: () => this.setState((s) => ({ langOpen: !s.langOpen })),
+      closeLang: () => this.setState({ langOpen: false }),
+      chooseFr: () => this.setLang('fr'),
+      chooseEn: () => this.setLang('en'),
+      frBg: this.state.lang === 'fr' ? 'rgba(154,91,67,.08)' : 'transparent',
+      enBg: this.state.lang === 'en' ? 'rgba(154,91,67,.08)' : 'transparent',
+      frCheck: this.state.lang === 'fr' ? '✓' : '',
+      enCheck: this.state.lang === 'en' ? '✓' : '',
+      menuOpenClass: this.state.menuOpen ? 'open' : '',
+      menuHidden: this.state.menuOpen ? 'false' : 'true',
+      toggleMenu: () => this.setState((s) => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      frBorder: this.state.lang === 'fr' ? '#C6A35C' : 'rgba(244,238,228,.28)',
+      enBorder: this.state.lang === 'en' ? '#C6A35C' : 'rgba(244,238,228,.28)',
+      frBgDark: this.state.lang === 'fr' ? 'rgba(198,163,92,.18)' : 'transparent',
+      enBgDark: this.state.lang === 'en' ? 'rgba(198,163,92,.18)' : 'transparent',
+      qtyOptions,
+      freqOptions,
+      perDeliveryLabel: this.eur(perDelivery),
+      fullLabel: this.eur(fullPerDelivery),
+      monthlyLabel: this.eur(monthly),
+      discountLabel: this.eur(fullPerDelivery - perDelivery),
+      qtyLabel: subQty + (subQty > 1 ? ' tubes' : ' tube'),
+      giftIncluded,
+      giftHint: giftIncluded ? 'Coffret signature offert avec cette formule.' : 'Passez à 3 tubes pour recevoir le coffret signature offert.',
+      giftHintBg: giftIncluded ? '#54192A' : 'rgba(246,240,230,.06)',
+      giftHintBorder: giftIncluded ? 'rgba(198,163,92,.5)' : 'rgba(246,240,230,.2)',
+      benefitDots: [{ label: '−15 % à vie' }, { label: 'Sans engagement' }, { label: 'Livraison offerte' }],
+      activateSub: () => this.activateSub(),
+
+      openMini: () => this.setState({ miniOpen: true }),
+      closeMini: () => this.setState({ miniOpen: false }),
+      miniOpen: this.state.miniOpen,
+      miniItems: mini.items,
+      miniEmpty: mini.empty,
+      miniHas: !mini.empty,
+      miniSubtotal: mini.subtotal,
+      justAdded: this.state.added,
+      rootRef: this.rootRef,
+      navRef: this.navRef,
+      heroImgRef: this.heroImgRef,
+      productImgRef: this.productImgRef,
+      productVideoRef: this.productVideoRef,
+      onProductEnter: () => {
+        const v = this.productVideoRef.current;
+        if (!v) return;
+        clearTimeout(this._pvTimer);
+        this._pvTimer = setTimeout(() => {
+          v.muted = true; v.loop = true; v.playsInline = true; v.style.opacity = '1';
+          const p = v.play(); if (p && p.catch) p.catch(() => {});
+        }, 2500);
+      },
+      onProductLeave: () => {
+        const v = this.productVideoRef.current;
+        clearTimeout(this._pvTimer);
+        if (v) { v.style.opacity = '0'; v.pause(); }
+      },
+      cartCount: this.state.count || 0,
+      showBar: this.props.announcementBar !== false,
+
+      variantName: variants[v].name,
+      variantSub: variants[v].sub,
+      qty: qty,
+      price: this.eur(unit * qty),
+      addLabel: this.state.added ? 'Ajouté au panier ✓' : 'Ajouter au panier',
+
+      selBordeaux: () => this.setState({ variant: 'bordeaux' }),
+      incQty: () => this.setState((s) => ({ qty: Math.min(9, (s.qty || 1) + 1) })),
+      decQty: () => this.setState((s) => ({ qty: Math.max(1, (s.qty || 1) - 1) })),
+      addToCart: () => {
+        if (this.CART) this.CART.add(this.state.variant || 'bordeaux', this.state.qty || 1);
+        this.setState({ added: true });
+        clearTimeout(this._t);
+        this._t = setTimeout(() => this.setState({ added: false }), 2200);
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

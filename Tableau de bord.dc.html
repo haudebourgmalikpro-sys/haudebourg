@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Haudebourg — Tableau de bord</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;background:#ECE4D6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  ::selection{background:#C6A35C;color:#2A1116;}
+  button{font-family:inherit;}
+  .tb-num{font-variant-numeric:tabular-nums;}
+  @media (max-width:1080px){
+    .tb-shell{flex-direction:column !important;}
+    .tb-side{width:auto !important;flex-direction:row !important;align-items:center !important;overflow-x:auto;}
+    .tb-side-nav{flex-direction:row !important;gap:4px !important;}
+    .tb-side-foot{display:none !important;}
+    .tb-kpis{grid-template-columns:repeat(2,1fr) !important;}
+    .tb-row2{grid-template-columns:1fr !important;}
+  }
+  @media (max-width:620px){
+    .tb-kpis{grid-template-columns:1fr !important;}
+    .tb-pad{padding:24px 18px !important;}
+  }
+</style>
+</helmet>
+<div class="tb-shell" style="display:flex;min-height:100vh;background:#ECE4D6;color:#241B1D;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+
+  <aside class="tb-side" style="width:248px;flex:none;display:flex;flex-direction:column;background:#3C131D;padding:26px 20px;gap:30px;">
+    <div style="display:flex;align-items:center;gap:11px;">
+      <span style="width:34px;height:34px;border-radius:8px;background:#C6A35C;color:#2A1116;display:flex;align-items:center;justify-content:center;font:600 18px/1 'Cormorant Garamond',serif;">H</span>
+      <span style="display:flex;flex-direction:column;line-height:1.1;">
+        <span style="font:500 19px/1 'Cormorant Garamond',serif;color:#F6F0E6;">haudebourg</span>
+        <span style="font:600 8.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#C6A35C;margin-top:3px;">Espace Admin</span>
+      </span>
+    </div>
+    <nav class="tb-side-nav" style="display:flex;flex-direction:column;gap:3px;">
+      <sc-for list="{{ navItems }}" as="nav" hint-placeholder-count="5">
+        <span style="display:flex;align-items:center;gap:11px;padding:11px 13px;border-radius:7px;background:{{ nav.bg }};color:{{ nav.color }};font:500 13.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;cursor:pointer;white-space:nowrap;transition:background .25s ease;">
+          <span style="width:6px;height:6px;border-radius:100px;background:{{ nav.dot }};flex:none;"></span>{{ nav.label }}
+        </span>
+      </sc-for>
+    </nav>
+    <div class="tb-side-foot" style="margin-top:auto;display:flex;align-items:center;gap:11px;padding:13px;border-radius:9px;background:rgba(246,240,230,.06);">
+      <span style="width:34px;height:34px;border-radius:100px;background:#54192A;color:#E8CB89;display:flex;align-items:center;justify-content:center;font:600 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;flex:none;">A</span>
+      <span style="display:flex;flex-direction:column;line-height:1.2;min-width:0;">
+        <span style="font:500 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#F6F0E6;">Admin Haudebourg</span>
+        <span style="font:400 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.5);margin-top:3px;">Propriétaire</span>
+      </span>
+    </div>
+  </aside>
+
+  <main data-screen-label="Tableau de bord" style="flex:1;min-width:0;display:flex;flex-direction:column;">
+
+    <div class="tb-pad" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:18px;padding:30px 34px 22px;border-bottom:1px solid rgba(42,26,28,.1);">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <h1 style="margin:0;font:300 34px/1 'Cormorant Garamond',serif;color:#241B1D;letter-spacing:-.01em;">Vue d’ensemble</h1>
+          <sc-if value="{{ connected }}" hint-placeholder-val="{{ false }}">
+            <span style="display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:100px;background:rgba(31,122,77,.14);color:#176B42;font:600 9.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;"><span style="width:6px;height:6px;border-radius:100px;background:#1F8A5B;"></span>En direct</span>
+          </sc-if>
+        </div>
+        <p style="margin:9px 0 0;font:400 13.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.55);">{{ subtitle }}</p>
+      </div>
+      <div style="display:flex;background:#fff;border:1px solid rgba(42,26,28,.12);border-radius:9px;padding:4px;gap:3px;">
+        <sc-for list="{{ periodOptions }}" as="p" hint-placeholder-count="3">
+          <button onClick="{{ p.select }}" style="padding:9px 16px;border:none;border-radius:6px;background:{{ p.bg }};color:{{ p.color }};font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;cursor:pointer;transition:background .25s ease,color .25s ease;">{{ p.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div class="tb-pad" style="padding:26px 34px 48px;display:flex;flex-direction:column;gap:22px;">
+
+      <!-- CONNECT STATE -->
+      <sc-if value="{{ showConnect }}" hint-placeholder-val="{{ true }}">
+        <div style="background:#fff;border:1px solid rgba(42,26,28,.1);border-radius:14px;padding:44px 40px;max-width:760px;box-shadow:0 22px 40px -34px rgba(60,19,29,.4);">
+          <span style="display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:100px;background:rgba(198,163,92,.18);color:#8A6A28;font:600 10px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;">{{ connectBadge }}</span>
+          <h2 style="margin:18px 0 0;font:300 30px/1.1 'Cormorant Garamond',serif;color:#241B1D;">Connectez votre compte Plausible</h2>
+          <p style="margin:12px 0 0;font:400 14.5px/1.65 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.62);max-width:560px;">Ce tableau de bord n’affiche que des chiffres réels. Pour les voir, reliez-le à votre compte Plausible via le proxy (fichier <code style="background:rgba(42,26,28,.06);padding:1px 6px;border-radius:4px;">plausible-proxy.js</code>), puis collez l’URL du proxy dans le code (constante <code style="background:rgba(42,26,28,.06);padding:1px 6px;border-radius:4px;">PROXY_URL</code>).</p>
+          <div style="margin-top:24px;display:flex;flex-direction:column;gap:14px;">
+            <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+              <div style="display:flex;gap:14px;align-items:flex-start;">
+                <span style="width:26px;height:26px;border-radius:100px;background:#54192A;color:#F6F0E6;display:flex;align-items:center;justify-content:center;font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;flex:none;">{{ s.n }}</span>
+                <span style="font:400 14px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#3A2B2D;padding-top:4px;">{{ s.text }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:24px 0 0;padding:13px 16px;border-radius:8px;background:rgba(178,58,58,.08);color:#9B3030;font:500 13px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;">{{ errorMsg }}</p>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <!-- LOADING -->
+      <sc-if value="{{ loading }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#fff;border:1px solid rgba(42,26,28,.08);border-radius:14px;padding:48px;text-align:center;font:400 14px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.5);">Chargement des données Plausible…</div>
+      </sc-if>
+
+      <!-- DATA -->
+      <sc-if value="{{ connected }}" hint-placeholder-val="{{ false }}">
+
+        <div class="tb-kpis" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+          <sc-for list="{{ kpiCards }}" as="k" hint-placeholder-count="8">
+            <div style="background:#fff;border:1px solid rgba(42,26,28,.08);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:11px;box-shadow:0 22px 40px -34px rgba(60,19,29,.4);">
+              <span style="font:600 10.5px/1.2 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:rgba(42,26,28,.5);">{{ k.label }}</span>
+              <span class="tb-num" style="font:400 29px/1 'Cormorant Garamond',serif;color:#241B1D;">{{ k.value }}</span>
+            </div>
+          </sc-for>
+        </div>
+
+        <div class="tb-row2" style="display:grid;grid-template-columns:1.9fr 1fr;gap:16px;">
+          <div style="background:#fff;border:1px solid rgba(42,26,28,.08);border-radius:14px;padding:22px 24px;box-shadow:0 22px 40px -34px rgba(60,19,29,.4);">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap;">
+              <div>
+                <h2 style="margin:0;font:500 16px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#241B1D;">Ventes</h2>
+                <p style="margin:7px 0 0;font:400 12.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.5);">{{ chartTitle }}</p>
+              </div>
+              <div style="text-align:right;">
+                <span class="tb-num" style="display:block;font:400 26px/1 'Cormorant Garamond',serif;color:#241B1D;">{{ salesTotal }}</span>
+                <span style="font:500 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.45);">{{ salesNote }}</span>
+              </div>
+            </div>
+            <svg viewBox="0 0 840 250" preserveAspectRatio="none" style="width:100%;height:230px;margin-top:14px;display:block;overflow:visible;">
+              <defs><linearGradient id="tbArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#54192A" stop-opacity="0.22"></stop><stop offset="100%" stop-color="#54192A" stop-opacity="0"></stop></linearGradient></defs>
+              <line x1="0" y1="10" x2="840" y2="10" stroke="rgba(42,26,28,.08)" stroke-width="1"></line>
+              <line x1="0" y1="90" x2="840" y2="90" stroke="rgba(42,26,28,.08)" stroke-width="1"></line>
+              <line x1="0" y1="170" x2="840" y2="170" stroke="rgba(42,26,28,.08)" stroke-width="1"></line>
+              <path d="{{ areaPath }}" fill="url(#tbArea)"></path>
+              <path d="{{ linePath }}" fill="none" stroke="#54192A" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"></path>
+              <circle cx="{{ lastX }}" cy="{{ lastY }}" r="4.5" fill="#54192A" stroke="#fff" stroke-width="2"></circle>
+            </svg>
+            <div style="display:flex;justify-content:space-between;margin-top:8px;">
+              <sc-for list="{{ xlabels }}" as="x" hint-placeholder-count="6">
+                <span style="font:500 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.42);">{{ x.label }}</span>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="background:#fff;border:1px solid rgba(42,26,28,.08);border-radius:14px;padding:22px 24px;box-shadow:0 22px 40px -34px rgba(60,19,29,.4);">
+            <h2 style="margin:0;font:500 16px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#241B1D;">Tunnel de conversion</h2>
+            <p style="margin:7px 0 18px;font:400 12.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.5);">Du visiteur à l’abonné</p>
+            <div style="display:flex;flex-direction:column;gap:15px;">
+              <sc-for list="{{ funnel }}" as="f" hint-placeholder-count="4">
+                <div>
+                  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;">
+                    <span style="display:flex;align-items:center;gap:8px;font:500 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#3A2B2D;"><span style="width:7px;height:7px;border-radius:2px;background:{{ f.color }};"></span>{{ f.label }}</span>
+                    <span class="tb-num" style="font:500 14px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#241B1D;">{{ f.value }}</span>
+                  </div>
+                  <div style="height:9px;border-radius:100px;background:rgba(42,26,28,.07);overflow:hidden;"><div style="height:100%;width:{{ f.width }};background:{{ f.color }};border-radius:100px;transition:width .7s cubic-bezier(.2,.6,.32,1);"></div></div>
+                  <span style="display:block;margin-top:5px;font:400 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.45);">{{ f.rate }} des visiteurs</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+
+        <div class="tb-row2" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div style="background:#fff;border:1px solid rgba(42,26,28,.08);border-radius:14px;padding:22px 24px;box-shadow:0 22px 40px -34px rgba(60,19,29,.4);">
+            <h2 style="margin:0 0 4px;font:500 16px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#241B1D;">Sources de trafic</h2>
+            <p style="margin:7px 0 16px;font:400 12.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.5);">D’où viennent vos visiteurs</p>
+            <div style="display:flex;flex-direction:column;gap:13px;">
+              <sc-for list="{{ sources }}" as="s" hint-placeholder-count="5">
+                <div>
+                  <div style="display:flex;justify-content:space-between;margin-bottom:6px;"><span style="font:500 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#3A2B2D;">{{ s.name }}</span><span class="tb-num" style="font:500 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#241B1D;">{{ s.value }}</span></div>
+                  <div style="height:7px;border-radius:100px;background:rgba(42,26,28,.07);overflow:hidden;"><div style="height:100%;width:{{ s.width }};background:#9A4C5A;border-radius:100px;"></div></div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="background:#fff;border:1px solid rgba(42,26,28,.08);border-radius:14px;padding:22px 24px;box-shadow:0 22px 40px -34px rgba(60,19,29,.4);">
+            <h2 style="margin:0 0 4px;font:500 16px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#241B1D;">Pages les plus vues</h2>
+            <p style="margin:7px 0 16px;font:400 12.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.5);">Vues sur la période</p>
+            <div style="display:flex;flex-direction:column;gap:13px;">
+              <sc-for list="{{ pages }}" as="pg" hint-placeholder-count="5">
+                <div>
+                  <div style="display:flex;justify-content:space-between;margin-bottom:6px;gap:10px;"><span style="font:500 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#3A2B2D;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ pg.name }}</span><span class="tb-num" style="font:500 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#241B1D;flex:none;">{{ pg.value }}</span></div>
+                  <div style="height:7px;border-radius:100px;background:rgba(42,26,28,.07);overflow:hidden;"><div style="height:100%;width:{{ pg.width }};background:#C6A35C;border-radius:100px;"></div></div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+
+        <div class="tb-row2" style="display:grid;grid-template-columns:1fr 1.25fr;gap:16px;">
+          <div style="background:#fff;border:1px solid rgba(42,26,28,.08);border-radius:14px;padding:22px 24px;box-shadow:0 22px 40px -34px rgba(60,19,29,.4);">
+            <h2 style="margin:0 0 4px;font:500 16px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#241B1D;">Appareils</h2>
+            <p style="margin:7px 0 16px;font:400 12.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.5);">Répartition des visiteurs</p>
+            <div style="display:flex;flex-direction:column;gap:13px;">
+              <sc-for list="{{ devices }}" as="d" hint-placeholder-count="3">
+                <div>
+                  <div style="display:flex;justify-content:space-between;margin-bottom:6px;"><span style="font:500 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#3A2B2D;">{{ d.name }}</span><span class="tb-num" style="font:500 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#241B1D;">{{ d.value }}</span></div>
+                  <div style="height:7px;border-radius:100px;background:rgba(42,26,28,.07);overflow:hidden;"><div style="height:100%;width:{{ d.width }};background:#54192A;border-radius:100px;"></div></div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="background:#fff;border:1px solid rgba(42,26,28,.08);border-radius:14px;padding:22px 24px;box-shadow:0 22px 40px -34px rgba(60,19,29,.4);">
+            <h2 style="margin:0 0 4px;font:500 16px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#241B1D;">Commandes récentes</h2>
+            <p style="margin:7px 0 16px;font:400 12.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.5);">{{ ordersHint }}</p>
+            <sc-if value="{{ hasOrders }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;flex-direction:column;">
+                <div style="display:grid;grid-template-columns:1.1fr 1.3fr .8fr 1fr;gap:10px;padding:0 0 10px;border-bottom:1px solid rgba(42,26,28,.1);font:600 10.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:rgba(42,26,28,.45);"><span>Commande</span><span>Client</span><span>Montant</span><span style="text-align:right;">Statut</span></div>
+                <sc-for list="{{ recentOrders }}" as="o" hint-placeholder-count="0">
+                  <div style="display:grid;grid-template-columns:1.1fr 1.3fr .8fr 1fr;gap:10px;padding:13px 0;border-bottom:1px solid rgba(42,26,28,.06);align-items:center;">
+                    <span class="tb-num" style="font:500 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#241B1D;">{{ o.no }}</span>
+                    <span style="font:400 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.7);">{{ o.client }}</span>
+                    <span class="tb-num" style="font:500 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#241B1D;">{{ o.amount }}</span>
+                    <button onClick="{{ o.toggle }}" title="{{ o.actionTitle }}" style="justify-self:end;border:none;cursor:pointer;padding:6px 12px;border-radius:100px;background:{{ o.statusBg }};color:{{ o.statusColor }};font:600 10.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;white-space:nowrap;transition:filter .25s ease;" style-hover="filter:brightness(.94);">{{ o.status }}{{ o.toggleIcon }}</button>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ noOrders }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:10px 0;font:400 13.5px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.5);">Aucune commande pour l’instant. Les commandes passées sur le site apparaîtront ici.</p>
+            </sc-if>
+          </div>
+        </div>
+
+        <p style="margin:4px 2px 0;font:400 12px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.4);">{{ footNote }}</p>
+      </sc-if>
+    </div>
+  </main>
+</div>
+
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#3C131D"/><rect x="24" y="54" width="9" height="20" rx="2" fill="#C6A35C"/><rect x="38" y="42" width="9" height="32" rx="2" fill="#C6A35C"/><rect x="52" y="48" width="9" height="26" rx="2" fill="#C6A35C"/><rect x="66" y="34" width="9" height="40" rx="2" fill="#C6A35C"/><path d="M24 40 L40 30 L54 36 L72 22" fill="none" stroke="#F6F0E6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</template>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:980}}">
+class Component extends DCLogic {
+  // ▼ Colle ici l'URL de ton Worker Cloudflare (proxy Plausible) pour afficher tes vrais chiffres.
+  //   Laisse vide ("") tant que le proxy n'est pas déployé.
+  PROXY_URL = '';
+
+  state = { period: 'today', live: {}, loading: false, error: '' };
+
+  async componentDidMount() {
+    try {
+      const acc = await import('./account-store.js');
+      this.ORDERS = acc.ORDERS; this.ACCOUNT = acc.ACCOUNT;
+      this._unsub = this.ACCOUNT.subscribe(() => this.forceUpdate());
+    } catch (e) {}
+    if (this.PROXY_URL) { this.setState({ loading: true }); this.fetchAll(); }
+    else this.forceUpdate();
+  }
+  componentWillUnmount() { if (this._unsub) this._unsub(); }
+
+  async fetchAll() {
+    const periods = ['today', '7d', '30d'];
+    for (const period of periods) {
+      try {
+        const res = await fetch(this.PROXY_URL.replace(/\/$/, '') + '/?period=' + period);
+        const data = await res.json();
+        if (data && data.kpis && !data.error) {
+          this.setState(s => ({ live: Object.assign({}, s.live, { [period]: data }), error: '' }));
+        } else if (data && data.error) {
+          this.setState({ error: data.error });
+        }
+      } catch (e) {
+        this.setState({ error: 'Proxy injoignable. Vérifiez l’URL du Worker et son déploiement.' });
+      }
+    }
+    this.setState({ loading: false });
+  }
+
+  fmt(n) { return Math.round(n || 0).toLocaleString('fr-FR').replace(/\u202f/g, ' '); }
+  eur(n) { return this.fmt(n) + ' €'; }
+  setPeriod(p) { this.setState({ period: p }); }
+
+  linePaths(values) {
+    const w = 840, h = 230, top = 12;
+    const max = Math.max(1, Math.max.apply(null, values)) * 1.12;
+    const n = values.length, sx = n > 1 ? w / (n - 1) : w;
+    const pts = values.map((v, i) => [i * sx, top + (h - top) - (v / max) * (h - top)]);
+    const line = pts.map((p, i) => (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ');
+    const area = line + ' L ' + w.toFixed(1) + ' ' + h + ' L 0 ' + h + ' Z';
+    return { line, area, last: pts[pts.length - 1] || [0, h] };
+  }
+
+  pickLabels(series) {
+    if (!series.length) return [];
+    const want = Math.min(6, series.length), out = [];
+    for (let i = 0; i < want; i++) out.push(series[Math.round(i * (series.length - 1) / (want - 1 || 1))]);
+    return out.map(s => ({ label: s.label }));
+  }
+
+  localOrders() {
+    const statusMap = {
+      'Livrée': { bg: 'rgba(31,122,77,.16)', color: '#176B42' },
+      'Expédiée': { bg: 'rgba(31,122,77,.12)', color: '#1F7A4D' },
+      'En préparation': { bg: 'rgba(198,163,92,.18)', color: '#8A6A28' },
+      'Confirmée': { bg: 'rgba(84,25,42,.1)', color: '#54192A' }
+    };
+    const sm = (s) => statusMap[s] || statusMap['Confirmée'];
+    const real = this.ORDERS ? this.ORDERS.all() : [];
+    return real.slice(0, 6).map(o => {
+      const shipped = o.status === 'Expédiée' || o.status === 'Livrée';
+      return {
+        no: o.no, client: (o.email && o.email.trim()) || 'Client invité',
+        amount: this.eur(o.total || 0), status: o.status,
+        statusBg: sm(o.status).bg, statusColor: sm(o.status).color,
+        toggleIcon: shipped ? ' ✓' : ' ↻',
+        actionTitle: shipped ? 'Marquer « en préparation »' : 'Marquer « expédiée »',
+        toggle: () => { if (this.ORDERS) this.ORDERS.toggleShipped(o.no); }
+      };
+    });
+  }
+
+  renderVals() {
+    const navDefs = ['Vue d’ensemble', 'Audience', 'Ventes', 'Abonnements', 'Commandes'];
+    const navItems = navDefs.map((label, i) => ({
+      label, bg: i === 0 ? 'rgba(198,163,92,.16)' : 'transparent',
+      color: i === 0 ? '#F6F0E6' : 'rgba(246,240,230,.6)', dot: i === 0 ? '#C6A35C' : 'rgba(246,240,230,.25)'
+    }));
+    const periodOptions = [
+      { id: 'today', label: "Aujourd’hui" }, { id: '7d', label: '7 jours' }, { id: '30d', label: '30 jours' }
+    ].map(o => ({
+      label: o.label, select: () => this.setPeriod(o.id),
+      bg: this.state.period === o.id ? '#54192A' : 'transparent',
+      color: this.state.period === o.id ? '#F6F0E6' : 'rgba(42,26,28,.6)'
+    }));
+
+    const live = this.state.live[this.state.period];
+    const connected = !!live;
+    const periodLabel = { today: "Aujourd’hui", '7d': '7 derniers jours', '30d': '30 derniers jours' }[this.state.period];
+
+    const base = {
+      navItems, periodOptions,
+      connected,
+      loading: this.state.loading && !connected,
+      showConnect: !connected && !this.state.loading,
+      connectBadge: this.state.error ? 'Connexion impossible' : 'Non connecté',
+      hasError: !!this.state.error,
+      errorMsg: this.state.error,
+      steps: [
+        { n: '1', text: 'Régénérez votre clé API dans Plausible (Settings → API Keys).' },
+        { n: '2', text: 'Déployez le fichier plausible-proxy.js sur Cloudflare Workers (gratuit) avec votre clé en variable secrète.' },
+        { n: '3', text: 'Copiez l’URL du Worker et collez-la dans PROXY_URL, en haut du code de ce tableau de bord.' },
+        { n: '4', text: 'Vérifiez que le domaine déclaré dans Plausible correspond à votre site en ligne.' }
+      ],
+      subtitle: connected ? (periodLabel + ' · données Plausible en direct') : (this.PROXY_URL ? 'En attente de connexion à Plausible' : 'Mode non connecté — aucune donnée réelle')
+    };
+    if (!connected) return base;
+
+    const k = live.kpis;
+    const kpiCards = [
+      { label: 'Visiteurs uniques', value: this.fmt(k.visitors) },
+      { label: 'Pages vues', value: this.fmt(k.pageviews) },
+      { label: 'Durée moy. session', value: live.avg || '—' },
+      { label: 'Taux de rebond', value: Math.round(k.bounce || 0) + ' %' },
+      { label: 'Paniers créés', value: this.fmt(k.carts) },
+      { label: 'Comptes créés', value: this.fmt(k.accounts) },
+      { label: 'Abonnements', value: this.fmt(k.subs) },
+      { label: 'Achats', value: this.fmt(k.orders) }
+    ];
+
+    const series = (live.series && live.series.length) ? live.series : [{ label: '', value: 0 }];
+    const lp = this.linePaths(series.map(s => s.value));
+
+    const fStages = [
+      { label: 'Visiteurs', value: k.visitors, color: '#54192A' },
+      { label: 'Paniers créés', value: k.carts, color: '#9A4C5A' },
+      { label: 'Achats', value: k.orders, color: '#C6A35C' },
+      { label: 'Abonnements', value: k.subs, color: '#1F7A4D' }
+    ];
+    const vmax = Math.max(1, k.visitors);
+    const funnel = fStages.map(s => ({
+      label: s.label, color: s.color, value: this.fmt(s.value),
+      width: Math.max(3, (s.value / vmax) * 100).toFixed(1) + '%',
+      rate: ((s.value / vmax) * 100).toFixed(s.value / vmax < 0.1 ? 1 : 0) + ' %'
+    }));
+
+    const bars = (arr) => {
+      const max = Math.max(1, ...(arr || []).map(x => x.value));
+      return (arr || []).map(x => ({ name: x.name, value: this.fmt(x.value), width: Math.max(3, (x.value / max) * 100).toFixed(1) + '%' }));
+    };
+
+    const orders = this.localOrders();
+
+    return Object.assign(base, {
+      kpiCards,
+      chartTitle: this.state.period === 'today' ? 'Achats par heure' : 'Achats par jour',
+      salesTotal: this.eur(k.sales),
+      salesNote: k.revenueConfigured ? 'chiffre d’affaires' : 'CA estimé',
+      areaPath: lp.area, linePath: lp.line,
+      lastX: lp.last[0].toFixed(1), lastY: lp.last[1].toFixed(1),
+      xlabels: this.pickLabels(series),
+      funnel,
+      sources: bars(live.sources),
+      pages: bars(live.pages),
+      devices: bars(live.devices),
+      hasOrders: orders.length > 0,
+      noOrders: orders.length === 0,
+      recentOrders: orders,
+      ordersHint: orders.length ? 'Cliquez sur un statut pour basculer « expédiée »' : 'Commandes passées sur le site',
+      footNote: 'Audience, sources, pages et appareils proviennent de Plausible. Les commandes proviennent de votre boutique. ' + (k.revenueConfigured ? '' : 'Astuce : configurez « Achat » comme objectif à revenu dans Plausible pour un chiffre d’affaires exact.')
+    });
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Haudebourg — Mon compte</title>
+<meta name="description" content="Votre compte Haudebourg — paiement accéléré, suivi de commandes et informations de livraison enregistrées.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script defer data-domain="haudebourg" src="https://plausible.io/js/pa-CB7z1PMXpVKM_Nvvg6uDQ.js"></script>
+<script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  html{scrollbar-color:#54192A #EAE2D4;scrollbar-width:thin;}
+  ::-webkit-scrollbar{width:13px;height:13px;}
+  ::-webkit-scrollbar-track{background:#EAE2D4;}
+  ::-webkit-scrollbar-thumb{background:#54192A;border-radius:10px;border:3px solid #EAE2D4;}
+  ::-webkit-scrollbar-thumb:hover{background:#6B2233;}
+  ::-webkit-scrollbar-corner{background:#EAE2D4;}
+  body::after{content:"";position:fixed;inset:0;z-index:2147483000;pointer-events:none;opacity:.11;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='200'%20height='200'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.85'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px 180px;}
+  body{margin:0;background:#F4EEE4;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  img{display:block;}
+  ::selection{background:#C6A35C;color:#2A1116;}
+  a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #C6A35C;outline-offset:2px;}
+  .ac-in{width:100%;background:#fff;border:1px solid rgba(42,26,28,.18);border-radius:3px;padding:14px 15px;font:400 15px/1.2 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#2A1A1C;outline:none;transition:border-color .3s ease;}
+  .ac-in::placeholder{color:rgba(42,26,28,.4);}
+  .ac-in:focus{border-color:#54192A;}
+  .ac-lbl{display:block;font:500 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:rgba(42,26,28,.55);margin:0 0 8px;}
+  @media (max-width:920px){
+    .ac-grid{grid-template-columns:1fr !important;}
+    .ac-2{grid-template-columns:1fr !important;}
+    .ac-pad{padding-left:6vw !important;padding-right:6vw !important;}
+  }
+</style>
+</helmet>
+<div style="background:#F4EEE4;color:#221A1C;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;min-height:100vh;display:flex;flex-direction:column;">
+
+  <nav class="ac-pad" style="display:flex;align-items:center;justify-content:space-between;padding:17px 44px;background:rgba(244,238,228,.9);backdrop-filter:saturate(150%) blur(18px);-webkit-backdrop-filter:saturate(150%) blur(18px);border-bottom:1px solid rgba(42,26,28,.1);">
+    <a href="Haudebourg.dc.html" style="font:500 27px/1 'Cormorant Garamond',serif;color:#54192A;text-decoration:none;">haudebourg</a>
+    <a href="Panier.dc.html" aria-label="Voir le panier" style="display:inline-flex;align-items:center;gap:9px;padding:10px 19px;border:1px solid #54192A;border-radius:2px;font:600 11.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#54192A;text-decoration:none;background:rgba(84,25,42,.05);">Panier · {{ count }}</a>
+  </nav>
+
+  <main data-screen-label="Compte" class="ac-pad" style="flex:1;width:100%;max-width:1080px;margin:0 auto;padding:48px 5vw 90px;">
+
+    <!-- LOGGED OUT: auth -->
+    <sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}">
+      <div class="ac-grid" style="display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(36px,5vw,72px);align-items:center;">
+        <div>
+          <span style="display:inline-block;font:600 11.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.32em;text-transform:uppercase;color:#9A5B43;">Mon compte</span>
+          <h1 style="margin:18px 0 0;font:300 clamp(38px,5vw,62px)/1.02 'Cormorant Garamond',serif;color:#2A1A1C;letter-spacing:-.015em;">{{ authTitle }}</h1>
+          <p style="margin:16px 0 0;max-width:380px;font:400 15.5px/1.65 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.62);">{{ authIntro }}</p>
+          <div style="margin-top:30px;display:flex;flex-direction:column;gap:14px;">
+            <span style="display:flex;gap:12px;align-items:center;font:400 14px/1.4 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.7);"><span style="width:7px;height:7px;background:#C6A35C;transform:rotate(45deg);flex:none;"></span>Paiement accéléré — vos informations pré-remplies</span>
+            <span style="display:flex;gap:12px;align-items:center;font:400 14px/1.4 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.7);"><span style="width:7px;height:7px;background:#C6A35C;transform:rotate(45deg);flex:none;"></span>Suivi du statut de vos commandes en temps réel</span>
+            <span style="display:flex;gap:12px;align-items:center;font:400 14px/1.4 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.7);"><span style="width:7px;height:7px;background:#C6A35C;transform:rotate(45deg);flex:none;"></span>Historique d’achats et coffret offert dès 3 tubes</span>
+          </div>
+        </div>
+
+        <div style="background:#fff;border:1px solid rgba(42,26,28,.1);border-radius:4px;padding:30px 30px 32px;box-shadow:0 40px 80px -55px rgba(60,19,29,.45);">
+          <div style="display:flex;background:#F4EEE4;border-radius:3px;padding:4px;margin-bottom:24px;">
+            <button onClick="{{ setLogin }}" style="flex:1;padding:11px;border:none;border-radius:2px;cursor:pointer;font:600 11.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;background:{{ loginTabBg }};color:{{ loginTabColor }};transition:background .3s ease,color .3s ease;">Se connecter</button>
+            <button onClick="{{ setSignup }}" style="flex:1;padding:11px;border:none;border-radius:2px;cursor:pointer;font:600 11.5px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;background:{{ signupTabBg }};color:{{ signupTabColor }};transition:background .3s ease,color .3s ease;">Créer un compte</button>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <sc-if value="{{ isSignup }}" hint-placeholder-val="{{ false }}">
+              <div class="ac-2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+                <div><label class="ac-lbl" for="ac-fn">Prénom</label><input id="ac-fn" ref="{{ fnRef }}" class="ac-in" placeholder="Camille" autocomplete="given-name"/></div>
+                <div><label class="ac-lbl" for="ac-ln">Nom</label><input id="ac-ln" ref="{{ lnRef }}" class="ac-in" placeholder="Rivière" autocomplete="family-name"/></div>
+              </div>
+            </sc-if>
+            <div><label class="ac-lbl" for="ac-email">Adresse e-mail</label><input id="ac-email" ref="{{ emailRef }}" type="email" class="ac-in" placeholder="vous@exemple.com" autocomplete="email"/></div>
+            <div><label class="ac-lbl" for="ac-pass">Mot de passe</label><input id="ac-pass" ref="{{ passRef }}" type="password" class="ac-in" placeholder="••••••••" autocomplete="current-password"/></div>
+            <sc-if value="{{ errorMsg }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:0;font:400 12.5px/1.4 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#B23A48;">{{ errorMsg }}</p>
+            </sc-if>
+            <button onClick="{{ submit }}" style="margin-top:4px;width:100%;padding:17px;background:#54192A;color:#F4EEE4;font:600 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;border:none;border-radius:2px;cursor:pointer;transition:transform .5s cubic-bezier(.2,.6,.32,1),background .35s ease;" style-hover="transform:translateY(-3px);background:#6B2233;">{{ submitLabel }}</button>
+            <p style="margin:2px 0 0;text-align:center;font:400 11.5px/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.45);">Démonstration — aucune donnée n’est transmise, tout reste sur cet appareil.</p>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- LOGGED IN: dashboard -->
+    <sc-if value="{{ loggedIn }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:18px;margin-bottom:40px;">
+        <div style="display:flex;align-items:center;gap:20px;">
+          <div style="width:64px;height:64px;border-radius:100px;background:#54192A;color:#E8CB89;display:flex;align-items:center;justify-content:center;font:400 28px/1 'Cormorant Garamond',serif;flex:none;">{{ initial }}</div>
+          <div>
+            <span style="display:inline-block;font:600 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#9A5B43;">Mon compte</span>
+            <h1 style="margin:10px 0 0;font:300 clamp(32px,4.2vw,48px)/1 'Cormorant Garamond',serif;color:#2A1A1C;">{{ greeting }}</h1>
+          </div>
+        </div>
+        <button onClick="{{ logout }}" style="padding:12px 20px;background:transparent;border:1px solid rgba(42,26,28,.25);color:#2A1A1C;font:600 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;border-radius:2px;cursor:pointer;transition:border-color .3s ease,color .3s ease;" style-hover="border-color:#54192A;color:#54192A;">Se déconnecter</button>
+      </div>
+
+      <div class="ac-grid" style="display:grid;grid-template-columns:1.6fr 1fr;gap:clamp(28px,3.5vw,48px);align-items:start;">
+        <!-- Orders -->
+        <div>
+          <h2 style="margin:0 0 20px;font:300 26px/1 'Cormorant Garamond',serif;color:#2A1A1C;">Mes commandes</h2>
+          <sc-if value="{{ noOrders }}" hint-placeholder-val="{{ false }}">
+            <div style="background:#fff;border:1px solid rgba(42,26,28,.08);border-radius:4px;padding:48px 28px;text-align:center;">
+              <p style="margin:0 0 20px;font:400 15px/1.6 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.6);">Aucune commande pour l’instant.</p>
+              <a href="Produit.dc.html" style="display:inline-flex;padding:14px 28px;background:#54192A;color:#F4EEE4;font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;">Commander l’Original</a>
+            </div>
+          </sc-if>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <sc-for list="{{ orders }}" as="o" hint-placeholder-count="0">
+              <div style="background:#fff;border:1px solid rgba(42,26,28,.08);border-radius:4px;padding:22px 24px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+                  <div>
+                    <span style="font:500 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#9A5B43;">Commande {{ o.no }}</span>
+                    <p style="margin:6px 0 0;font:400 13px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.55);">{{ o.dateLabel }} · {{ o.itemsLabel }}</p>
+                  </div>
+                  <span style="padding:7px 13px;border-radius:100px;background:{{ o.statusBg }};color:{{ o.statusColor }};font:600 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.06em;">{{ o.status }}</span>
+                </div>
+                <!-- Status tracker -->
+                <div style="display:flex;align-items:center;margin:20px 0 4px;">
+                  <sc-for list="{{ o.steps }}" as="st" hint-placeholder-count="4">
+                    <div style="flex:1;display:flex;flex-direction:column;align-items:center;position:relative;">
+                      <div style="width:14px;height:14px;border-radius:100px;background:{{ st.dot }};border:2px solid {{ st.ring }};z-index:2;"></div>
+                      <span style="margin-top:8px;font:500 10px/1.2 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.04em;text-align:center;color:{{ st.txt }};">{{ st.label }}</span>
+                      <span style="position:absolute;top:6px;right:50%;width:100%;height:2px;background:{{ st.line }};z-index:1;display:{{ st.lineDisplay }};"></span>
+                    </div>
+                  </sc-for>
+                </div>
+                <div style="display:flex;justify-content:space-between;margin-top:18px;padding-top:16px;border-top:1px solid rgba(42,26,28,.08);font:400 14px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(42,26,28,.7);"><span>Total</span><span style="font:400 18px/1 'Cormorant Garamond',serif;color:#2A1A1C;">{{ o.totalLabel }}</span></div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <!-- Saved info -->
+        <aside style="background:#fff;border:1px solid rgba(42,26,28,.1);border-radius:4px;padding:26px 26px 28px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
+            <h2 style="margin:0;font:300 24px/1 'Cormorant Garamond',serif;color:#2A1A1C;">Mes informations</h2>
+            <button onClick="{{ toggleEdit }}" style="background:none;border:none;cursor:pointer;font:600 11px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#7A2433;text-decoration:underline;text-underline-offset:3px;">{{ editLabel }}</button>
+          </div>
+
+          <sc-if value="{{ viewing }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column;gap:14px;">
+              <div><span class="ac-lbl">Nom</span><p style="margin:0;font:400 15px/1.4 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#2A1A1C;">{{ fullName }}</p></div>
+              <div><span class="ac-lbl">E-mail</span><p style="margin:0;font:400 15px/1.4 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#2A1A1C;">{{ email }}</p></div>
+              <div><span class="ac-lbl">Adresse de livraison</span><p style="margin:0;font:400 15px/1.55 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#2A1A1C;">{{ addressLabel }}</p></div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ editing }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:13px;">
+              <div class="ac-2" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                <div><label class="ac-lbl" for="e-fn">Prénom</label><input id="e-fn" ref="{{ efnRef }}" class="ac-in" value="{{ user.firstName }}"/></div>
+                <div><label class="ac-lbl" for="e-ln">Nom</label><input id="e-ln" ref="{{ elnRef }}" class="ac-in" value="{{ user.lastName }}"/></div>
+              </div>
+              <div><label class="ac-lbl" for="e-addr">Adresse</label><input id="e-addr" ref="{{ eaddrRef }}" class="ac-in" value="{{ user.address }}"/></div>
+              <div class="ac-2" style="display:grid;grid-template-columns:1fr 2fr;gap:12px;">
+                <div><label class="ac-lbl" for="e-zip">Code postal</label><input id="e-zip" ref="{{ ezipRef }}" class="ac-in" value="{{ user.zip }}"/></div>
+                <div><label class="ac-lbl" for="e-city">Ville</label><input id="e-city" ref="{{ ecityRef }}" class="ac-in" value="{{ user.city }}"/></div>
+              </div>
+              <button onClick="{{ saveInfo }}" style="margin-top:4px;width:100%;padding:14px;background:#54192A;color:#F4EEE4;font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;border:none;border-radius:2px;cursor:pointer;">Enregistrer</button>
+            </div>
+          </sc-if>
+
+          <a href="Produit.dc.html" style="display:block;text-align:center;margin-top:22px;padding:14px;border:1px solid #54192A;color:#54192A;font:600 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;">Commander à nouveau</a>
+        </aside>
+      </div>
+    </sc-if>
+  </main>
+
+  <footer style="background:#3C131D;padding:40px 7vw;">
+    <div style="max-width:1200px;margin:0 auto;text-align:center;font:400 12px/1 'Helvetica Neue',Helvetica,Arial,sans-serif;color:rgba(246,240,230,.45);">© 2026 Haudebourg · Café de spécialité · Livraison soignée sous 48 h</div>
+  </footer>
+
+</div>
+
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#54192A"/><circle cx="50" cy="40" r="12" fill="none" stroke="#C6A35C" stroke-width="3"/><path d="M28 72 a22 22 0 0 1 44 0" fill="none" stroke="#C6A35C" stroke-width="3"/></svg>
+</template>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1080,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  fnRef = React.createRef(); lnRef = React.createRef();
+  emailRef = React.createRef(); passRef = React.createRef();
+  efnRef = React.createRef(); elnRef = React.createRef(); eaddrRef = React.createRef();
+  ezipRef = React.createRef(); ecityRef = React.createRef();
+  state = { mode: 'login', user: null, orders: [], count: 0, error: '', editing: false };
+
+  eur(n) { const r = Math.round(n * 100) / 100; return (Number.isInteger(r) ? r.toString() : r.toFixed(2).replace('.', ',')) + ' €'; }
+
+  async componentDidMount() {
+    try {
+      const acc = await import('./account-store.js');
+      this.ACCOUNT = acc.ACCOUNT; this.ORDERS = acc.ORDERS; this.formatDate = acc.formatDate;
+      this._unsubA = this.ACCOUNT.subscribe(() => this.sync());
+      this.sync();
+    } catch (e) {}
+    try {
+      const c = await import('./cart-store.js');
+      this.CART = c.CART;
+      this._unsubC = this.CART.subscribe(() => this.setState({ count: this.CART.count() }));
+      this.setState({ count: this.CART.count() });
+    } catch (e) {}
+  }
+  componentWillUnmount() { if (this._unsubA) this._unsubA(); if (this._unsubC) this._unsubC(); }
+
+  sync() {
+    this.setState({ user: this.ACCOUNT.user(), orders: this.ORDERS.forUser() });
+  }
+
+  submit() {
+    const email = (this.emailRef.current && this.emailRef.current.value || '').trim();
+    const pass = (this.passRef.current && this.passRef.current.value || '').trim();
+    if (!email || !/.+@.+\..+/.test(email)) { this.setState({ error: 'Adresse e-mail invalide.' }); return; }
+    if (pass.length < 4) { this.setState({ error: 'Mot de passe trop court (4 caractères min.).' }); return; }
+    if (this.state.mode === 'signup') {
+      this.ACCOUNT.signup({
+        email,
+        firstName: (this.fnRef.current && this.fnRef.current.value || '').trim(),
+        lastName: (this.lnRef.current && this.lnRef.current.value || '').trim()
+      });
+    } else {
+      this.ACCOUNT.login(email);
+    }
+    this.setState({ error: '' });
+    try {
+      const next = new URLSearchParams(location.search).get('next');
+      if (next === 'checkout') { window.location.href = 'Checkout.dc.html'; }
+    } catch (e) {}
+  }
+
+  saveInfo() {
+    this.ACCOUNT.update({
+      firstName: (this.efnRef.current && this.efnRef.current.value || '').trim(),
+      lastName: (this.elnRef.current && this.elnRef.current.value || '').trim(),
+      address: (this.eaddrRef.current && this.eaddrRef.current.value || '').trim(),
+      zip: (this.ezipRef.current && this.ezipRef.current.value || '').trim(),
+      city: (this.ecityRef.current && this.ecityRef.current.value || '').trim()
+    });
+    this.setState({ editing: false });
+  }
+
+  renderVals() {
+    const gold = '#C6A35C';
+    const u = this.state.user;
+    const isSignup = this.state.mode === 'signup';
+    const ACTIVE = { bg: '#54192A', color: '#F4EEE4' };
+    const IDLE = { bg: 'transparent', color: 'rgba(42,26,28,.6)' };
+    const lt = isSignup ? IDLE : ACTIVE;
+    const st = isSignup ? ACTIVE : IDLE;
+
+    const statusColors = {
+      'Confirmée':      { bg: 'rgba(198,163,92,.18)', color: '#8A6A2A' },
+      'En préparation': { bg: 'rgba(198,163,92,.18)', color: '#8A6A2A' },
+      'Expédiée':       { bg: 'rgba(31,122,77,.14)',  color: '#1F7A4D' },
+      'Livrée':         { bg: 'rgba(31,122,77,.14)',  color: '#1F7A4D' }
+    };
+    const STEPS = this.ORDERS ? this.ORDERS.statuses() : ['Confirmée', 'En préparation', 'Expédiée', 'Livrée'];
+
+    const orders = (this.state.orders || []).map(o => {
+      const idx = this.ORDERS ? this.ORDERS.statusIndex(o.status) : 0;
+      const sc = statusColors[o.status] || statusColors['Confirmée'];
+      const qty = (o.items || []).reduce((a, i) => a + i.qty, 0);
+      return {
+        no: o.no,
+        dateLabel: this.formatDate ? this.formatDate(o.date) : '',
+        itemsLabel: qty + (qty > 1 ? ' articles' : ' article'),
+        status: o.status,
+        statusBg: sc.bg, statusColor: sc.color,
+        totalLabel: this.eur(o.total),
+        steps: STEPS.map((label, i) => ({
+          label,
+          dot: i <= idx ? '#54192A' : '#E4DACB',
+          ring: i <= idx ? '#54192A' : '#E4DACB',
+          txt: i <= idx ? '#2A1A1C' : 'rgba(42,26,28,.4)',
+          line: i <= idx && i > 0 ? '#54192A' : '#E4DACB',
+          lineDisplay: i === 0 ? 'none' : 'block'
+        }))
+      };
+    });
+
+    const addr = u ? [u.address, [u.zip, u.city].filter(Boolean).join(' '), u.country].filter(Boolean).join(', ') : '';
+
+    return {
+      count: this.state.count || 0,
+      loggedOut: !u,
+      loggedIn: !!u,
+
+      isSignup,
+      authTitle: isSignup ? 'Créer un compte.' : 'Bon retour.',
+      authIntro: isSignup
+        ? 'Quelques secondes pour profiter d’un paiement accéléré et d’un suivi de commande complet.'
+        : 'Connectez-vous pour retrouver vos commandes et payer en un geste.',
+      setLogin: () => this.setState({ mode: 'login', error: '' }),
+      setSignup: () => this.setState({ mode: 'signup', error: '' }),
+      loginTabBg: lt.bg, loginTabColor: lt.color,
+      signupTabBg: st.bg, signupTabColor: st.color,
+      fnRef: this.fnRef, lnRef: this.lnRef, emailRef: this.emailRef, passRef: this.passRef,
+      errorMsg: this.state.error,
+      submit: () => this.submit(),
+      submitLabel: isSignup ? 'Créer mon compte' : 'Se connecter',
+
+      initial: this.ACCOUNT ? this.ACCOUNT.initial() : '',
+      greeting: u ? ('Bonjour ' + (u.firstName || u.email.split('@')[0]) + '.') : '',
+      logout: () => { this.ACCOUNT.logout(); this.setState({ mode: 'login' }); },
+
+      orders,
+      noOrders: orders.length === 0,
+
+      viewing: !this.state.editing,
+      editing: this.state.editing,
+      toggleEdit: () => this.setState(s => ({ editing: !s.editing })),
+      editLabel: this.state.editing ? 'Annuler' : 'Modifier',
+      user: u || { firstName: '', lastName: '', address: '', zip: '', city: '' },
+      fullName: u ? [u.firstName, u.lastName].filter(Boolean).join(' ') || '—' : '',
+      email: u ? u.email : '',
+      addressLabel: addr || 'Aucune adresse enregistrée',
+      efnRef: this.efnRef, elnRef: this.elnRef, eaddrRef: this.eaddrRef, ezipRef: this.ezipRef, ecityRef: this.ecityRef,
+      saveInfo: () => this.saveInfo()
+    };
+  }
+}
+</script>
+</body>
+</html>
